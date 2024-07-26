@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class EmpNOK {
 
-    private String empID;
     private String kinID;
+    private String empID;
     private String empNextOfKinName;
     private String relationship;
     private String contactNumber;
@@ -14,9 +14,9 @@ public class EmpNOK {
     public EmpNOK() {
     }
 
-    public EmpNOK(String empID, String kinID, String empNextOfKinName, String relationship, String contactNumber) {
-        this.empID = empID;
+    public EmpNOK( String kinID, String empID,String empNextOfKinName, String relationship, String contactNumber) {
         this.kinID = kinID;
+        this.empID = empID;
         this.empNextOfKinName = empNextOfKinName;
         this.relationship = relationship;
         this.contactNumber = contactNumber;
@@ -51,7 +51,7 @@ public class EmpNOK {
     public EmpNOK getRecordByID(String empID, String kinID) {
         TextFileModifier tfm = new TextFileModifier("next_of_kin");
         for (String[] s : tfm.toArrayListofStringArray()) {
-            if (s[0].equals(empID) && s[1].equals(kinID)) {
+            if (s[1].equals(empID) && s[0].equals(kinID)) {
                 return new EmpNOK(s[0], s[1], s[2], s[3], s[4]);
             }
         }

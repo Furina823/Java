@@ -67,24 +67,22 @@ public class TextFileModifier {
     }
 
     // Modify the one line base on ID,
+    // The ID must be unique
     // Need to pass exactly number of parameter base on text file "column"
     protected void updateRecord(String id, String[] content){
         String path = this.path;
         // If the affectedline is just one record
-        String[] selectedline = new String[this.toArrayListofStringArray().getFirst().toString().split(",").length];
-        selectedline[0] = "10002,jane.smith@example.com,securePass2!,2019-05-10,NULL,Financial Analyst,8500,Finance,Manager";
         ArrayList<String[]> line = new ArrayList<>();
 
         for (String[] s : this.toArrayListofStringArray()){
 
             if(s[0].equals(id)){
-                line.add(selectedline);
+                line.add(content);
             }else{
                 line.add(s);
             }
 
         }
-
 
         try{
             BufferedWriter bm = new BufferedWriter(new FileWriter(path));

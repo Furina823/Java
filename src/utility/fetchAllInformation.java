@@ -1,6 +1,7 @@
 package utility;
 
 import datamodel.*;
+
 import java.util.ArrayList;
 
 public class fetchAllInformation {
@@ -9,10 +10,10 @@ public class fetchAllInformation {
     private Emp employee;
     private PersonalInfo personalInfo;
     private EmpBackground background;
-    private Leave leave;
+    private ArrayList<Leave> leaves;
     private ArrayList<SalaryHistory> salaries;
     private ArrayList<EmpNOK> nextOfKins;
-    private ArrayList<WorkSchedule> workSchedules;
+    private ArrayList<Attendance> attendances;
     private ArrayList<LeaveRequest> leaveRequests;
     private ArrayList<Paid> taxes;
     private ArrayList<PositionHistory> positions;
@@ -25,10 +26,10 @@ public class fetchAllInformation {
         loadEmp();
         loadPersonalInfo();
         loadEmpBackground();
-        loadLeave();
+        loadLeaves();
         loadSalaries();
         loadEmpNOKs();
-        loadWorkSchedules();
+        loadAttendances();
         loadLeaveRequests();
         loadPaides();
         loadPositions();
@@ -93,18 +94,22 @@ public class fetchAllInformation {
         }
     }
 
-    private void loadLeave() {
+    private void loadLeaves() {
+        leaves = new ArrayList<>();
         TextFileModifier tfm = new TextFileModifier("leave");
         for (String[] array : tfm.toArrayListofStringArray()) {
-            if (array[0].equals(userID)) {
+            if (array[1].equals(userID)) {
+                Leave leave = new Leave();
                 leave = new Leave();
-                leave.setEmpID(array[0]);
-                leave.setYear(array[1]);
-                leave.setAnnualLeave(array[2]);
-                leave.setMedicalLeave(array[3]);
-                leave.setMaternityLeave(array[4]);
-                leave.setUnpaidLeave(array[5]);
-                leave.setTotalLeave(array[6]);
+                leave.setLeaveID(array[0]);
+                leave.setEmpID(array[1]);
+                leave.setYear(array[2]);
+                leave.setAnnualLeave(array[3]);
+                leave.setMedicalLeave(array[4]);
+                leave.setMaternityLeave(array[5]);
+                leave.setUnpaidLeave(array[6]);
+                leave.setTotalLeave(array[7]);
+                leaves.add(leave);
             }
         }
     }
@@ -129,10 +134,10 @@ public class fetchAllInformation {
         nextOfKins = new ArrayList<>();
         TextFileModifier tfm = new TextFileModifier("next_of_kin");
         for (String[] array : tfm.toArrayListofStringArray()) {
-            if (array[0].equals(userID)) {
+            if (array[1].equals(userID)) {
                 EmpNOK nextOfKin = new EmpNOK();
-                nextOfKin.setEmpID(array[0]);
-                nextOfKin.setKinID(array[1]);
+                nextOfKin.setEmpID(array[1]);
+                nextOfKin.setKinID(array[0]);
                 nextOfKin.setEmpNextOfKinName(array[2]);
                 nextOfKin.setRelationship(array[3]);
                 nextOfKin.setContactNumber(array[4]);
@@ -141,17 +146,20 @@ public class fetchAllInformation {
         }
     }
 
-    private void loadWorkSchedules() {
-        workSchedules = new ArrayList<>();
+    private void loadAttendances() {
+        attendances = new ArrayList<>();
         TextFileModifier tfm = new TextFileModifier("attendance");
         for (String[] array : tfm.toArrayListofStringArray()) {
-            if (array[0].equals(userID)) {
-                WorkSchedule workSchedule = new WorkSchedule();
-                workSchedule.setDate(array[0]);
-                workSchedule.setIsHoliday(array[1]);
-                workSchedule.setStandardizedStartWorkTime(array[2]);
-                workSchedule.setStandardizedEndWorkTime(array[3]);
-                workSchedules.add(workSchedule);
+            if (array[1].equals(userID)) {
+                Attendance attendance = new Attendance();
+                attendance.setAttendanceID(array[0]);
+                attendance.setEmpID(array[1]);
+                attendance.setAttendanceStatus(array[2]);
+                attendance.setStandardWorkTimeStart(array[3]);
+                attendance.setStandardWorkTimeEnd(array[4]);
+                attendance.setClockInTime(array[5]);
+                attendance.setClockOutTime(array[6]);
+                attendances.add(attendance);
             }
         }
     }
@@ -238,10 +246,10 @@ public class fetchAllInformation {
     public Emp getEmp() { return employee; }
     public PersonalInfo getPersonalInfo() { return personalInfo; }
     public EmpBackground getEmpBackground() { return background; }
-    public Leave getLeave() { return leave; }
+    public ArrayList<Leave> getLeaves() { return leaves; }
     public ArrayList<SalaryHistory> getSalaries() { return salaries; }
     public ArrayList<EmpNOK> getEmpNOKs() { return nextOfKins; }
-    public ArrayList<WorkSchedule> getWorkSchedules() { return workSchedules; }
+    public ArrayList<Attendance> getAttendances() { return attendances; }
     public ArrayList<LeaveRequest> getLeaveRequests() { return leaveRequests; }
     public ArrayList<Paid> getPaides() { return taxes; }
     public ArrayList<PositionHistory> getPositions() { return positions; }

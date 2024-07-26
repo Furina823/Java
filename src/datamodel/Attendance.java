@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Attendance {
 
+    private String attendanceID;
     private String empID;
     private String date;
     private String attendanceStatus;
@@ -19,8 +20,9 @@ public class Attendance {
     }
 
     // Parameterized constructor
-    public Attendance(String empID, String date, String attendanceStatus, String standardWorkTimeStart,
+    public Attendance(String attendanceID, String empID, String date, String attendanceStatus, String standardWorkTimeStart,
                       String standardWorkTimeEnd, String clockInTime, String clockOutTime) {
+        this.attendanceID = attendanceID;
         this.empID = empID;
         this.date = date;
         this.attendanceStatus = attendanceStatus;
@@ -58,15 +60,16 @@ public class Attendance {
         TextFileModifier tfm = new TextFileModifier("attendance");
 
         for (String[] array : tfm.toArrayListofStringArray()) {
-            if (array[0].equals(empID)) {
+            if (array[1].equals(empID)) {
                 attendanceList.add(new Attendance(
-                        array[0], // empID
-                        array[1], // date
-                        array[2], // attendance status
-                        array[3], // standard work time start
-                        array[4], // standard work time end
-                        array[5], // clock in time
-                        array[6]  // clock out time
+                        array[0], // leaveID
+                        array[1], // empID
+                        array[2], // date
+                        array[3], // attendance status
+                        array[4], // standard work time start
+                        array[5], // standard work time end
+                        array[6], // clock in time
+                        array[7]  // clock out time
                 ));
             }
         }
@@ -82,13 +85,14 @@ public class Attendance {
         // Fetch records from the text file and populate Attendance objects
         for (String[] s : tfm.toArrayListofStringArray()) {
             Attendance attendance = new Attendance(
-                    s[0], // empID
-                    s[1], // date
-                    s[2], // attendance
-                    s[3], // standardWorkTimeStart
-                    s[4], // standardWorkTimeEnd
-                    s[5], // clockInTime
-                    s[6]  // clockOutTime
+                    s[0], // leaveID
+                    s[1], // empID
+                    s[2], // date
+                    s[3], // attendance status
+                    s[4], // standard work time start
+                    s[5], // standard work time end
+                    s[6], // clock in time
+                    s[7]  // clock out time
             );
             records.add(attendance);
         }
@@ -96,4 +100,11 @@ public class Attendance {
         return records;
     }
 
+    public String getAttendanceID() {
+        return attendanceID;
+    }
+
+    public void setAttendanceID(String attendanceID) {
+        this.attendanceID = attendanceID;
+    }
 }

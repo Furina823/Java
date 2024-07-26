@@ -4,6 +4,7 @@ import datamodel.*;
 import pages.MyFrame;
 
 import javax.swing.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +18,8 @@ public abstract class BaseModel {
     private PersonalInfo empPersonalInformation;
     private List<EmpNOK> empNextOfKin;
     private EmpBackground empBackground;
-    private ArrayList<WorkSchedule> empWorkTime;
-    private Leave empLeave;
+    private ArrayList<Attendance> empAttendance;
+    private ArrayList<Leave> empLeave;
     private ArrayList<LeaveRequest> leaveRequest;
     private ArrayList<SalaryHistory> salary;
     private ArrayList<Paid> tax;
@@ -35,8 +36,8 @@ public abstract class BaseModel {
             PersonalInfo empPersonalInformation,
             List<EmpNOK> empNextOfKin,
             EmpBackground empBackground,
-            ArrayList<WorkSchedule> empWorkTime,
-            Leave empLeave,
+            ArrayList<Attendance> empAttendance,
+            ArrayList <Leave> empLeave,
             ArrayList<LeaveRequest> leaveRequest,
             ArrayList<SalaryHistory> salary,
             ArrayList<Paid> tax,
@@ -47,7 +48,7 @@ public abstract class BaseModel {
         this.empPersonalInformation = empPersonalInformation;
         this.empNextOfKin = empNextOfKin;
         this.empBackground = empBackground;
-        this.empWorkTime = empWorkTime;
+        this.empAttendance = empAttendance;
         this.empLeave = empLeave;
         this.leaveRequest = leaveRequest;
         this.salary = salary;
@@ -72,11 +73,9 @@ public abstract class BaseModel {
         return this.empBackground;
     }
 
-    public ArrayList<WorkSchedule> getEmpWorkTime() {
-        return this.empWorkTime;
-    }
+    public ArrayList<Attendance> getEmpAttendance() {return empAttendance;}
 
-    public Leave getEmpLeave() {
+    public ArrayList<Leave> getEmpLeave() {
         return this.empLeave;
     }
 
@@ -99,4 +98,6 @@ public abstract class BaseModel {
     public ArrayList<Bonus> getBonus() {
         return this.bonus;
     }
+
+
 }

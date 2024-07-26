@@ -62,6 +62,7 @@ public class Leave {
         this.totalLeave = totalLeave;
     }
 
+    private String leaveID;
     private String empID;
     private String year;
     private String annualLeave;
@@ -74,8 +75,9 @@ public class Leave {
         // Initialize default values or leave empty if not needed
     }
 
-    public Leave(String empID, String year, String annualLeave, String medicalLeave,
+    public Leave(String leaveID, String empID, String year, String annualLeave, String medicalLeave,
                  String maternityLeave, String unpaidLeave) {
+        this.leaveID = leaveID;
         this.empID = empID;
         this.year = year;
         this.annualLeave = annualLeave;
@@ -103,7 +105,7 @@ public class Leave {
         ArrayList<Leave> records = new ArrayList<>();
         TextFileModifier tfm = new TextFileModifier("leave");
         for (String[] s : tfm.toArrayListofStringArray()) {
-                Leave leave = new Leave(s[0], s[1], s[2], s[3], s[4], s[5]);
+                Leave leave = new Leave(s[0],s[1], s[2], s[3], s[4], s[5], s[6]);
                 records.add(leave);
         }
         return records;
@@ -114,7 +116,7 @@ public class Leave {
         TextFileModifier tfm = new TextFileModifier("leave");
         for (String[] s : tfm.toArrayListofStringArray()) {
             if (s[0].equals(id)) {
-                Leave leave = new Leave(s[0], s[1], s[2], s[3], s[4], s[5]);
+                Leave leave = new Leave(s[0],s[1], s[2], s[3], s[4], s[5], s[6]);
                 records.add(leave);
             }
         }
@@ -122,4 +124,11 @@ public class Leave {
     }
 
 
+    public String getLeaveID() {
+        return leaveID;
+    }
+
+    public void setLeaveID(String leaveID) {
+        this.leaveID = leaveID;
+    }
 }
