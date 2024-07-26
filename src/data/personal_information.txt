@@ -1,0 +1,20 @@
+10001,John,Doe,12345678,A1234567,Male,1985-03-15,New York,Caucasian,Christianity,+1-202-555-0123,123 Main St; New York; NY 10001,john.doe@example.com,Single
+10002,Jane,Smith,87654321,B7654321,Female,1990-07-21,Los Angeles,Asian,Buddhism,+1-323-555-0456,456 Elm St; Los Angeles; CA 90001,jane.smith@example.com,Married
+10003,Michael,Johnson,23456789,C2345678,Male,1982-12-30,Chicago,African American,Islam,+1-312-555-0789,789 Oak St; Chicago; IL 60601,michael.johnson@example.com,Single
+10004,Emily,Davis,34567890,D3456789,Female,1995-11-05,Houston,Hispanic,Christianity,+1-713-555-0112,101 Pine St; Houston; TX 77001,emily.davis@example.com,Divorced
+10005,Robert,Brown,45678901,E4567890,Male,1978-04-22,Phoenix,Caucasian,Judaism,+1-602-555-0234,202 Maple St; Phoenix; AZ 85001,robert.brown@example.com,Married
+10006,Alice,Johnson,56789012,F5678901,Female,1989-02-18,New York,Asian,Christianity,+1-202-555-5678,234 Park Ave; New York; NY 10001,alice.johnson@example.com,Single
+10007,Bob,Williams,67890123,G6789012,Male,1984-09-12,Los Angeles,White,Christianity,+1-323-555-6789,567 Pine St; Los Angeles; CA 90001,bob.williams@example.com,Married
+10008,Charlie,Martin,78901234,H7890123,Male,1979-06-05,Chicago,Latino,Islam,+1-312-555-7890,678 Cedar St; Chicago; IL 60601,charlie.martin@example.com,Single
+10009,Diana,Garcia,89012345,I8901234,Female,1992-08-21,Houston,Hispanic,Buddhism,+1-713-555-1234,789 Maple St; Houston; TX 77001,diana.garcia@example.com,Married
+10010,Edward,Thomas,90123456,J9012345,Male,1986-11-15,Phoenix,Caucasian,Judaism,+1-602-555-3456,123 Oak St; Phoenix; AZ 85001,edward.thomas@example.com,Single
+10011,Frank,White,01234567,K0123456,Male,1980-03-20,New York,White,Christianity,+1-202-555-6789,456 Maple St; New York; NY 10001,frank.white@example.com,Divorced
+10012,Grace,Harris,12345678,L1234567,Female,1993-04-10,Los Angeles,Asian,Buddhism,+1-323-555-7890,678 Elm St; Los Angeles; CA 90001,grace.harris@example.com,Single
+10013,Henry,Clark,23456789,M2345678,Male,1988-12-25,Chicago,African American,Christianity,+1-312-555-8901,789 Birch St; Chicago; IL 60601,henry.clark@example.com,Married
+10014,Irene,Lewis,34567890,N3456789,Female,1985-07-16,Houston,Hispanic,Islam,+1-713-555-2345,101 Oak St; Houston; TX 77001,irene.lewis@example.com,Married
+10015,Jack,Wilson,45678901,O4567890,Male,1977-09-30,Phoenix,Caucasian,Judaism,+1-602-555-4567,202 Birch St; Phoenix; AZ 85001,jack.wilson@example.com,Single
+10016,Karen,Walker,56789012,P5678901,Female,1992-05-11,New York,Latino,Christianity,+1-202-555-3456,345 Pine St; New York; NY 10001,karen.walker@example.com,Divorced
+10017,Leo,Hall,67890123,Q6789012,Male,1986-11-25,Los Angeles,White,Buddhism,+1-323-555-4567,456 Cedar St; Los Angeles; CA 90001,leo.hall@example.com,Married
+10018,Maria,Young,78901234,R7890123,Female,1991-03-14,Chicago,Asian,Islam,+1-312-555-5678,567 Oak St; Chicago; IL 60601,maria.young@example.com,Single
+10019,Nathan,King,89012345,S8901234,Male,1987-10-30,Houston,Hispanic,Christianity,+1-713-555-3456,678 Elm St; Houston; TX 77001,nathan.king@example.com,Married
+10020,Olivia,Jones,90123456,T9012345,Female,1989-08-22,Phoenix,White,Judaism,+1-602-555-6789,789 Pine St; Phoenix; AZ 85001,olivia.jones@example.com,Single

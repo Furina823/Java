@@ -1,0 +1,21 @@
+10001,5 years at TechCorp; 3 years at MediaWorks,Bachelor's Degree in Marketing,Certified Digital Marketer; Certified SEO Specialist,Member of American Marketing Association,SEO; Social Media Management,English; Spanish
+10002,8 years at FinSolutions; 2 years at QuickBooks,Bachelor's Degree in Finance,Certified Public Accountant (CPA),Member of CFA Institute,Financial Analysis; Tax Planning,English
+10003,10 years at NetSecure; 4 years at InfoTech,Master's Degree in Information Technology,Certified Information Systems Security Professional (CISSP),Member of ISACA,Network Security; Systems Administration,English; French
+10004,4 years at HRWorld; 2 years at PeopleFirst,Bachelor's Degree in Human Resources,Certified Human Resources Professional (CHRP),Member of Society for Human Resource Management (SHRM,Employee Relations; Recruitment,English; German
+10005,6 years at RetailCorp; 3 years at TrendyGoods,Associate's Degree in Business Administration,Certified Sales Professional (CSP),Member of National Association of Sales Professionals (NASP),Customer Service; Sales Strategy,English; Mandarin
+10006,3 years at CreateMedia; 2 years at AdMasters,Bachelor's Degree in Advertising,Google Ads Certified,Member of American Advertising Federation (AAF),Content Creation; Ad Campaigns,English
+10007,7 years at PayCorp; 1 year at QuickPay,Bachelor's Degree in Accounting,Certified Payroll Professional (CPP),Member of American Payroll Association (APA),Payroll Processing; Financial Reporting,English
+10008,5 years at SecureIT; 2 years at CyberGuard,Master's Degree in Cybersecurity,Certified Ethical Hacker (CEH),Member of (ISC)²,Penetration Testing; Risk Management,English; Korean
+10009,4 years at HumanEdge; 1 year at TalentPlus,Associate's Degree in HR Management,Certified Recruitment Professional (CRP),Member of Recruitment and Employment Confederation (REC),Talent Acquisition; HR Compliance,English
+10010,6 years at SalesForce; 2 years at MarketMakers,Bachelor's Degree in Marketing,Certified Professional Sales Leader (CPSL),Member of Sales Management Association,Lead Generation; Sales Strategy,English; Japanese
+10011,8 years at AdWorks; 3 years at BrandBoost,Master's Degree in Marketing,Certified Brand Manager (CBM),Member of International Brand Management Association,Brand Strategy; Market Research,English
+10012,5 years at PayTech; 1 year at FastPayroll,Bachelor's Degree in Finance,Certified Payroll Specialist (CPS),Member of American Payroll Association (APA),Payroll Management; Financial Analysis,English
+10013,7 years at CyberSec; 3 years at SecureNet,Master's Degree in Information Security,Certified Information Security Manager (CISM),Member of Information Systems Audit and Control Association (ISACA),Security Analysis; Network Defense,English
+10014,4 years at CompPayroll; 2 years at PayPlus,Bachelor's Degree in Business,Certified Payroll Manager (CPM),Member of American Payroll Association (APA),Payroll Management; Employee Benefits,English
+10015,6 years at MarketWise; 2 years at TrendAnalyzer,Associate's Degree in Marketing,Certified Marketing Specialist (CMS),Member of American Marketing Association (AMA),Market Analysis; Digital Marketing,English
+10016,3 years at MediaFlow; 1 year at AdWorks,Bachelor's Degree in Media Studies,Certified Digital Media Specialist (CDMS),Member of Digital Media Association,Media Planning; Social Media,English
+10017,5 years at FinTech; 2 years at QuickInvest,Bachelor's Degree in Finance,Certified Investment Management Analyst (CIMA),Member of CFA Institute,Investment Strategies; Risk Management,English
+10018,6 years at TechSecure; 1 year at CyberSafe,Master's Degree in Cybersecurity,Certified Network Defender (CND),Member of (ISC)²,Network Security; Incident Response,English; Portuguese
+10019,4 years at HRMaster; 1 year at PeopleWorks,Bachelor's Degree in Human Resources,Certified HR Specialist (CHRS),Member of Society for Human Resource Management (SHRM),Employee Relations; HR Policy,English
+10020,5 years at SalesPlus; 2 years at MarketMasters,Bachelor's Degree in Sales,Certified Sales Manager (CSM),Member of National Association of Sales Professionals (NASP),Sales Strategy; Customer Relations,English
+
