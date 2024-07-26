@@ -2,11 +2,14 @@ package pages.home;
 
 import rolemodel.DepManager;
 
-public class DepHome {
+import javax.swing.*;
+import java.awt.*;
+
+public class DepHome extends JPanel {
 
     public DepHome(DepManager manager){
 
-
+        this.setPreferredSize(new Dimension(850,600));
 
     }
 
