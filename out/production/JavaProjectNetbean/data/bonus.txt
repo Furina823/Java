@@ -1,0 +1,20 @@
+201,10001,2023-07-01,300,Bonus for Q2 performance
+202,10002,2023-07-01,250,Year-end bonus
+203,10003,2023-07-01,500,Project completion bonus
+204,10004,2023-06-01,200,Referral bonus
+205,10005,2023-07-01,350,Sales target achievement
+206,10006,2023-07-01,400,Performance improvement bonus
+207,10007,2023-07-01,450,Extra hours compensation
+208,10008,2023-07-01,300,Tech support excellence
+209,10009,2023-07-01,200,Employee of the month
+210,10010,2023-07-01,250,Client satisfaction bonus
+211,10011,2023-07-01,300,Marketing campaign success
+212,10012,2023-07-01,500,Payroll accuracy bonus
+213,10013,2023-07-01,400,IT infrastructure improvement
+214,10014,2023-07-01,350,Employee engagement bonus
+215,10015,2023-07-01,250,Sales growth incentive
+216,10016,2023-07-01,450,Team collaboration bonus
+217,10017,2023-07-01,200,Finance project completion
+218,10018,2023-07-01,300,System upgrade bonus
+219,10019,2023-07-01,250,HR policy implementation
+220,10020,2023-07-01,400,Sales performance incentive

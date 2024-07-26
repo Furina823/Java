@@ -1,0 +1,135 @@
+package pages;
+
+import utility.RoundedBorder;
+import utility.RoundedButton;
+import utility.Validation;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class LoginPanel extends JPanel implements ActionListener {
+
+    JPanel RightLoginPanel;
+    JPanel LeftLoginPanel;
+    RoundedButton LoginButton;
+    private JTextField usernameTextField;
+    private JPasswordField passwordTextField;
+    private MyFrame parentFrame;
+
+    public LoginPanel(MyFrame parentFrame) {
+
+        this.parentFrame = parentFrame;
+
+        // Right panel setup
+        RightLoginPanel = new JPanel();
+        RightLoginPanel.setLayout(new BorderLayout());
+        JLabel rightLabel = new JLabel("Some Picture Maybe", SwingConstants.CENTER);
+        RightLoginPanel.setBackground(Color.white);
+        RightLoginPanel.setOpaque(true);
+        RightLoginPanel.add(rightLabel, BorderLayout.CENTER);
+
+        // Left panel setup
+        LeftLoginPanel = new JPanel();
+        LeftLoginPanel.setLayout(new GridBagLayout());
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.VERTICAL; // Make components fill horizontally
+
+        JLabel leftLabelTitle = new JLabel("Login");
+        leftLabelTitle.setFont(new Font("Serif", Font.PLAIN, 50));
+        leftLabelTitle.setPreferredSize(new Dimension(150, 70));
+        leftLabelTitle.setBackground(Color.BLACK);
+        leftLabelTitle.setForeground(Color.WHITE);
+        leftLabelTitle.setOpaque(true);
+
+        usernameTextField = new JTextField();
+        usernameTextField.setForeground(Color.white);
+        usernameTextField.setBackground(Color.black);
+        usernameTextField.setCaretColor(Color.white);
+        usernameTextField.setBorder(new RoundedBorder(Color.white,1,10));
+        usernameTextField.setFont(new Font("TimesRoman", Font.PLAIN, 15));
+        usernameTextField.setPreferredSize(new Dimension(100,40));
+        usernameTextField.setColumns(20);
+
+        passwordTextField = new JPasswordField();
+        passwordTextField.setColumns(20);
+        passwordTextField.setFont(new Font("TimesRoman", Font.PLAIN, 15));
+        passwordTextField.setBorder(new RoundedBorder( Color.white,1,10));
+        passwordTextField.setPreferredSize(new Dimension(100,40));
+        passwordTextField.setCaretColor(Color.white);
+        passwordTextField.setForeground(Color.white);
+        passwordTextField.setBackground(Color.black);
+        passwordTextField.setEchoChar('*');
+
+        LoginButton = new RoundedButton("Login >",10);
+        LoginButton.addActionListener(this);
+        LoginButton.setBackground(Color.gray);
+        LoginButton.setForeground(Color.white);
+        LoginButton.setFocusable(false);
+        LoginButton.setFont(new Font("TimesRoman", Font.PLAIN, 15));
+        LoginButton.setPreferredSize(new Dimension(85, 40));
+
+        // Add components to the LeftLoginPanel with GridBagLayout
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = GridBagConstraints.REMAINDER; // Span across the entire width
+        gbc.anchor = GridBagConstraints.WEST; // Align to the left
+        LeftLoginPanel.add(leftLabelTitle, gbc);
+
+        gbc.gridy++;
+        gbc.gridwidth = 1; // Reset to default
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.insets = new Insets(0,0,0,0);
+        LeftLoginPanel.add(usernameTextField, gbc);
+
+        gbc.gridy++;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.insets = new Insets(10,0,10,0);
+        LeftLoginPanel.add(passwordTextField, gbc);
+
+        gbc.gridy++;
+        gbc.insets = new Insets(0,0,0,0);
+        gbc.anchor = GridBagConstraints.EAST; // Align to the right for the button
+        LeftLoginPanel.add(LoginButton, gbc);
+
+        LeftLoginPanel.setBackground(Color.BLACK);
+        LeftLoginPanel.setOpaque(true);
+
+        LeftLoginPanel.setPreferredSize(new Dimension(550, 600));
+        RightLoginPanel.setPreferredSize(new Dimension(550, 600));
+
+        this.setLayout(new GridBagLayout());
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 0.5;
+        gbc.weighty = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+        this.add(LeftLoginPanel, gbc);
+
+        gbc.gridx = 1;
+        this.add(RightLoginPanel, gbc);
+
+        this.setPreferredSize(new Dimension(1100, 600));
+    }
+
+
+    private void validateLogin() {
+        String username = usernameTextField.getText();
+        String password = new String(passwordTextField.getPassword());
+
+        Validation validation = new Validation(parentFrame, username, password);
+        if (validation.isSuccessful()) {
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == LoginButton){
+            validateLogin();
+        }
+    }
+}

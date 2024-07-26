@@ -1,0 +1,20 @@
+1,10001,2024-07-02,Senior Marketing Specialist,Marketing Specialist
+2,10002,2024-07-15,Senior Financial Analyst,Financial Analyst
+3,10003,2024-07-20,Lead Software Developer,Software Developer
+4,10004,2024-07-10,HR Manager,HR Coordinator
+5,10005,2024-07-25,Senior Sales Representative,Sales Representative
+6,10006,2024-07-04,Marketing Specialist,Marketing Assistant
+7,10007,2024-07-12,Finance Manager,Finance Associate
+8,10008,2024-07-18,IT Manager,System Administrator
+9,10009,2024-07-08,Senior HR Officer,HR Officer
+10,10010,2024-07-22,Senior Account Executive,Account Executive
+11,10011,2024-07-05,Marketing Director,Marketing Manager
+12,10012,2024-07-27,Senior Payroll Manager,Payroll Manager
+13,10013,2024-07-03,IT Support Lead,IT Support Specialist
+14,10014,2024-07-14,Payroll Manager,Payroll Officer
+15,10015,2024-07-23,Senior Sales Executive,Sales Executive
+16,10016,2024-07-07,Marketing Manager,Marketing Coordinator
+17,10017,2024-07-19,Finance Director,Finance Manager
+18,10018,2024-07-09,Senior IT Analyst,IT Analyst
+19,10019,2024-07-24,HR Manager,HR Specialist
+20,10020,2024-07-11,Regional Sales Manager,Sales Manager
