@@ -1,0 +1,20 @@
+1,10001,1000,2024-01-15,Annual Salary Increment
+2,10002,1200,2024-01-15,Performance-Based Raise
+3,10003,1500,2024-02-01,Promotion Increment
+4,10004,1100,2024-03-01,Cost of Living Adjustment
+5,10005,950,2024-04-15,Annual Salary Increment
+6,10006,800,2024-05-01,Performance-Based Raise
+7,10007,900,2024-06-01,Promotion Increment
+8,10008,1300,2024-07-01,Cost of Living Adjustment
+9,10009,850,2024-08-15,Annual Salary Increment
+10,10010,1100,2024-09-01,Performance-Based Raise
+11,10011,1150,2024-10-01,Promotion Increment
+12,10012,1250,2024-11-01,Cost of Living Adjustment
+13,10013,950,2024-12-01,Annual Salary Increment
+14,10014,1000,2024-01-15,Performance-Based Raise
+15,10015,1050,2024-02-01,Promotion Increment
+16,10016,950,2024-03-01,Cost of Living Adjustment
+17,10017,1100,2024-04-01,Annual Salary Increment
+18,10018,1150,2024-05-01,Performance-Based Raise
+19,10019,1200,2024-06-01,Promotion Increment
+20,10020,1250,2024-07-01,Cost of Living Adjustment
