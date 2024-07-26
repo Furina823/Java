@@ -1,13 +1,10 @@
 # IntelliJ IDEA
-.idea/
+/.idea
+/out/
 *.iml
 
 # NetBeans
 nbproject/
-
-# Build directories
-/build/
-/out/
 
 # OS-specific files
 .DS_Store
