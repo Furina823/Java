@@ -11,19 +11,21 @@ public class HROfficerHome extends JPanel {
 
     public HROfficerHome(HROfficer hr) {
 
-        JButton button = new JButton("Button");
-        button.addActionListener(e -> {this.removeAll();
-            this.add(new HROfficerHome2(hr));
-            this.revalidate();
-            this.repaint();
+        this.setPreferredSize(new Dimension(850,600));
 
-        });
-
-        panel = new JPanel();
-        panel.add(button);
-        panel.add(new JLabel("This is HR Page 1"));
-        panel.setPreferredSize(new Dimension(850,600));
-        this.add(panel);
+//        JButton button = new JButton("Button");
+//        button.addActionListener(e -> {this.removeAll();
+//            this.add(new HROfficerHome2(hr));
+//            this.revalidate();
+//            this.repaint();
+//
+//        });
+//
+//        panel = new JPanel();
+//        panel.add(button);
+//        panel.add(new JLabel("This is HR Page 1This is HR Page 1This is HR Page 1This is HR Page 1This is HR Page 1This is HR Page 1This is HR Page 1This is HR Page 1"));
+//        panel.setPreferredSize(new Dimension(850,600));
+//        this.add(panel);
 
 //        ArrayList<String> userIds = new ArrayList<>();
 //        Emp e = new Emp();

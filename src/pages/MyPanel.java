@@ -23,7 +23,7 @@ public class MyPanel extends JPanel {
         splitPane.setBackground(Color.black);
 
         splitPane.setDividerSize(0);
-        this.setLayout(new BorderLayout());
+        this.setLayout(new FlowLayout());
         this.add(splitPane, BorderLayout.CENTER);
         this.setPreferredSize(new Dimension(1100, 600));
     }
@@ -31,7 +31,7 @@ public class MyPanel extends JPanel {
     public void replaceRightPanel(JPanel newPanel) {
         splitPane.setRightComponent(newPanel);
         rightPanel = newPanel;
-        rightPanel.setPreferredSize(new Dimension(400, 600));
+        rightPanel.setPreferredSize(new Dimension(850, 600));
         splitPane.revalidate();
         splitPane.repaint();
     }

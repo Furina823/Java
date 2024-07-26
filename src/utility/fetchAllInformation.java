@@ -43,12 +43,13 @@ public class fetchAllInformation {
                 employee.setEmpID(array[0]);
                 employee.setEmpEmail(array[1]);
                 employee.setEmpPassword(array[2]);
-                employee.setDateJoin(array[3]);
-                employee.setDateLeave(array[4]);
-                employee.setSalary(array[5]);
-                employee.setPosition(array[6]);
-                employee.setDepartment(array[7]);
-                employee.setRole(array[8]);
+                employee.setIsBan(array[3]);
+                employee.setDateJoin(array[4]);
+                employee.setDateLeave(array[5]);
+                employee.setSalary(array[6]);
+                employee.setPosition(array[7]);
+                employee.setDepartment(array[8]);
+                employee.setRole(array[9]);
             }
         }
     }

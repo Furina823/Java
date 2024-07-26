@@ -28,8 +28,6 @@ public class calendar {
             System.out.println(formattedDate);
         }
 
-
-
     }
 
 }

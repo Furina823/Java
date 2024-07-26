@@ -1,20 +1,21 @@
-10001,john.doe@example.com,securePass1!,2020-01-15,NULL,9000,Marketing Specialist,Marketing,Department Manager
-10002,jane.smith@example.com,securePass2!,2019-05-10,NULL,9500,Financial Analyst,Finance,Department Manager
-10003,michael.johnson@example.com,securePass3!,2021-07-25,NULL,10000,Software Developer,IT,Employee
-10004,emily.davis@example.com,securePass4!,2018-11-20,2023-06-15,9800,HR Coordinator,Human Resources,Department Manager
-10005,robert.brown@example.com,securePass5!,2017-03-05,NULL,8500,Sales Representative,Sales,Employee
-10006,alice.johnson@example.com,securePass6!,2022-02-10,NULL,7500,Marketing Assistant,Marketing,Employee
-10007,bob.williams@example.com,securePass7!,2020-09-01,NULL,7800,Finance Associate,Finance,Employee
-10008,charlie.martin@example.com,securePass8!,2019-12-15,NULL,10000,System Administrator,IT,System Administrator
-10009,diana.garcia@example.com,securePass9!,2021-04-18,NULL,8200,HR Officer,Human Resources,Human Resource Officer
-10010,edward.thomas@example.com,securePass10!,2018-08-25,NULL,8000,Account Executive,Sales,Employee
-10011,frank.white@example.com,securePass11!,2016-11-30,2022-12-01,9200,Marketing Manager,Marketing,Employee
-10012,grace.harris@example.com,securePass12!,2022-06-22,NULL,9500,Payroll Manager,Payroll,Department Manager
-10013,henry.clark@example.com,securePass13!,2021-03-12,NULL,8500,IT Support Specialist,IT,Employee
-10014,irene.lewis@example.com,securePass14!,2019-10-10,2024-01-15,7700,Payroll Officer,Payroll,Payroll Officer
-10015,jack.wilson@example.com,securePass15!,2017-07-01,NULL,8200,Sales Executive,Sales,Employee
-10016,karen.walker@example.com,securePass16!,2020-01-20,NULL,7000,Marketing Coordinator,Marketing,Employee
-10017,leo.hall@example.com,securePass17!,2021-09-15,NULL,10000,Finance Manager,Finance,Employee
-10018,maria.young@example.com,securePass18!,2018-12-05,NULL,9000,IT Analyst,IT,Employee
-10019,nathan.king@example.com,securePass19!,2022-07-15,NULL,8800,HR Specialist,Human Resources,Human Resource Officer
-10020,olivia.jones@example.com,securePass20!,2019-06-10,2023-10-01,9500,Sales Manager,Sales,Employee
+10001,john.doe@example.com,securePass1!,0,2020-01-15,NULL,9000,Marketing Specialist,Marketing,Department Manager
+10002,jane.smith@example.com,securePass2!,0,2019-05-10,NULL,9500,Financial Analyst,Finance,Department Manager
+10003,michael.johnson@example.com,securePass3!,0,2021-07-25,NULL,10000,Software Developer,IT,Employee
+10004,emily.davis@example.com,securePass4!,0,2018-11-20,2023-06-15,9800,HR Coordinator,Human Resources,Department Manager
+10005,robert.brown@example.com,securePass5!,0,2017-03-05,NULL,8500,Sales Representative,Sales,Employee
+10006,alice.johnson@example.com,securePass6!,0,2022-02-10,NULL,7500,Marketing Assistant,Marketing,Employee
+10007,bob.williams@example.com,securePass7!,0,2020-09-01,NULL,7800,Finance Associate,Finance,Employee
+10008,charlie.martin@example.com,securePass8!,0,2019-12-15,NULL,10000,System Administrator,IT,System Administrator
+10009,diana.garcia@example.com,securePass9!,0,2021-04-18,NULL,8200,HR Officer,Human Resources,Human Resource Officer
+10010,edward.thomas@example.com,securePass10!,0,2018-08-25,NULL,8000,Account Executive,Sales,Employee
+10011,frank.white@example.com,securePass11!,0,2016-11-30,2022-12-01,9200,Marketing Manager,Marketing,Employee
+10012,grace.harris@example.com,securePass12!,0,2022-06-22,NULL,9500,Payroll Manager,Payroll,Department Manager
+10013,henry.clark@example.com,securePass13!,0,2021-03-12,NULL,8500,IT Support Specialist,IT,Employee
+10014,irene.lewis@example.com,securePass14!,0,2019-10-10,2024-01-15,7700,Payroll Officer,Payroll,Payroll Officer
+10015,jack.wilson@example.com,securePass15!,0,2017-07-01,NULL,8200,Sales Executive,Sales,Employee
+10016,karen.walker@example.com,securePass16!,0,2020-01-20,NULL,7000,Marketing Coordinator,Marketing,Employee
+10017,leo.hall@example.com,securePass17!,0,2021-09-15,NULL,10000,Finance Manager,Finance,Employee
+10018,maria.young@example.com,securePass18!,0,2018-12-05,NULL,9000,IT Analyst,IT,Employee
+10019,nathan.king@example.com,securePass19!,0,2022-07-15,NULL,8800,HR Specialist,Human Resources,Human Resource Officer
+10020,olivia.jones@example.com,securePass20!,0,2019-06-10,2023-10-01,9500,Sales Manager,Sales,Employee
+

@@ -9,6 +9,7 @@ public class Emp {
     private String empID;
     private String empEmail;
     private String empPassword;
+    private String IsBan;
     private String dateJoin;
     private String dateLeave;
     private String salary;
@@ -20,10 +21,11 @@ public class Emp {
         // Default constructor
     }
 
-    public Emp(String empID, String empEmail, String empPassword, String dateJoin, String dateLeave, String salary, String position, String department, String role) {
+    public Emp(String empID, String empEmail, String empPassword, String IsBan, String dateJoin, String dateLeave, String salary, String position, String department, String role) {
         this.empID = empID;
         this.empEmail = empEmail;
         this.empPassword = empPassword;
+        this.IsBan = IsBan;
         this.dateJoin = dateJoin;
         this.dateLeave = dateLeave;
         this.salary = salary;
@@ -41,6 +43,9 @@ public class Emp {
 
     public String getEmpPassword() { return empPassword; }
     public void setEmpPassword(String empPassword) { this.empPassword = empPassword; }
+
+    public void setIsBan(String isBan) {IsBan = isBan;}
+    public String getIsBan() {return IsBan;}
 
     public String getDateJoin() { return dateJoin; }
     public void setDateJoin(String dateJoin) { this.dateJoin = dateJoin; }
@@ -75,18 +80,22 @@ public class Emp {
                     s[0], // empID
                     s[1], // empEmail
                     s[2], // empPassword
-                    s[3], // dateJoin
-                    s[4], // dateLeave
-                    s[5], // salary
-                    s[6], // position
-                    s[7], // department
-                    s[8]  // role
+                    s[3], // IsBan
+                    s[4], // dateJoin
+                    s[5], // dateLeave
+                    s[6], // salary
+                    s[7], // position
+                    s[8], // department
+                    s[9]  // role
             );
             records.add(emp);
         }
 
         return records;
     }
+
+
+
 
 
 }
