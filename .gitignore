@@ -1,0 +1,32 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# NetBeans
+nbproject/
+
+# Build directories
+/build/
+/out/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Compiled class files
+*.class
+
+# Package distribution
+*.jar
+*.war
+*.ear
+
+# Temporary files
+*.tmp
+*.swp
+
+# Other
+*.class
