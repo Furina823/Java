@@ -15,9 +15,9 @@ public class Validation {
             String[] array = s.trim().split(",");
 //            if(array[1].trim().equals(username) && array[2].trim().equals(password)) {
                 userID = array[0];
-                fetchAllInformation fai = new fetchAllInformation("10001");
+                fetchAllInformation fai = new fetchAllInformation("10008");
                 successful = true;
-                String role = fai.getEmp().getRole();
+                String role = fai.getEmp().getRole().trim();
 
                 switch (role) {
                     case "Department Manager" -> new DepManager(

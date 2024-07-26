@@ -8,7 +8,7 @@
 /nbbuild/
 /dist/
 /nbdist/
-/build/   # Ignore build directory
+/build/
 
 # OS-specific files
 .DS_Store
