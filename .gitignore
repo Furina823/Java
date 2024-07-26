@@ -4,7 +4,11 @@
 *.iml
 
 # NetBeans
-nbproject/
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/build/   # Ignore build directory
 
 # OS-specific files
 .DS_Store
