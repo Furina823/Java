@@ -73,7 +73,6 @@ public class Emp {
     public ArrayList<Emp> getEmpRecords() {
         ArrayList<Emp> records = new ArrayList<>();
         TextFileModifier tfm = new TextFileModifier("employee");
-
         // Fetch records from the text file and populate Emp objects
         for (String[] s : tfm.toArrayListofStringArray()) {
             Emp emp = new Emp(
@@ -93,9 +92,4 @@ public class Emp {
 
         return records;
     }
-
-
-
-
-
 }

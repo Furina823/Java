@@ -6,6 +6,7 @@ import pages.MyPanel;
 import pages.home.SysAdministratorHome;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,9 @@ public class SysAdministrator extends BaseModel{
 
     @Override
     JPanel Home() {
-        return new SysAdministratorHome(this);
+        SysAdministratorHome home = new SysAdministratorHome(this);
+        home.setPreferredSize(new Dimension(850,600));
+        return home;
     }
 
     // Constructor for Account created but no information
@@ -54,7 +57,4 @@ public class SysAdministrator extends BaseModel{
         frame.replacePanel(new MyPanel(Home(),this));
 
     }
-
-
-
 }

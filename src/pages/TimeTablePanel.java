@@ -1,6 +1,7 @@
 package pages;
 
 import rolemodel.BaseModel;
+import test.CalendarGUI;
 
 import javax.swing.*;
 
@@ -8,12 +9,9 @@ public class TimeTablePanel extends JPanel {
 
     public TimeTablePanel(BaseModel bm){
 
+    this.setLayout(null);
+    this.add(new CalendarGUI());
 
-
-        JLabel label = new JLabel();
-        label.setText("This is TimeTable Panel");
-
-        this.add(label);
     }
 
 }

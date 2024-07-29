@@ -69,19 +69,19 @@ public class TextFileModifier {
     // Modify the one line base on ID,
     // The ID must be unique
     // Need to pass exactly number of parameter base on text file "column"
-    protected void updateRecord(String id, String[] content){
+    public void updateRecord(String id, String[] content){
         String path = this.path;
+        String[] newcontent = {id + "," + String.join(",",content)};
         // If the affectedline is just one record
         ArrayList<String[]> line = new ArrayList<>();
 
         for (String[] s : this.toArrayListofStringArray()){
 
             if(s[0].equals(id)){
-                line.add(content);
+                line.add(newcontent);
             }else{
                 line.add(s);
             }
-
         }
 
         try{
@@ -98,7 +98,7 @@ public class TextFileModifier {
 
     }
 
-    protected void createRecord(String[] content) {
+    public void createRecord(String[] content) {
         String path = this.path;
         int id = getId(path);
 
@@ -135,7 +135,7 @@ public class TextFileModifier {
         return id;
     }
 
-    protected void deleteRecord(String id) {
+    public void deleteRecord(String id) {
         List<String[]> lines = toArrayListofStringArray();
         List<String[]> updatedLines = new ArrayList<>();
 

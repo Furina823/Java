@@ -1,23 +1,16 @@
 package pages.home;
 
-import datamodel.Emp;
-import datamodel.PersonalInfo;
+
+import datamodel.EmpNOK;
 import rolemodel.SysAdministrator;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
-public class SysAdministratorHome extends JPanel {
 
-    JPanel panel = new JPanel();
+public class SysAdministratorHome extends JPanel{
 
     public SysAdministratorHome(SysAdministrator admin) {
-
-        this.setPreferredSize(new Dimension(850,600));
-
-
-
 
 
     }
