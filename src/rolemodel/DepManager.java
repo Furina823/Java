@@ -37,6 +37,7 @@ public class DepManager extends BaseModel {
             ArrayList<Bonus> bonus
     ) {
         super(
+                frame,
                 empCompany,
                 empPersonalInformation,
                 empNextOfKin,
@@ -52,5 +53,6 @@ public class DepManager extends BaseModel {
 
         this.frame = frame;
         frame.replacePanel(new MyPanel(Home(), this));
+
     }
 }

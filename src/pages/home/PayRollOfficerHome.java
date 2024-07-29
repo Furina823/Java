@@ -1,7 +1,5 @@
 package pages.home;
 
-import datamodel.Emp;
-import datamodel.EmpNOK;
 import rolemodel.PayRollOfficer;
 
 import javax.swing.*;

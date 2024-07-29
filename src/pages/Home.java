@@ -10,8 +10,6 @@ public class Home extends JPanel {
         label.setText("This is Home Panel");
         this.add(label);
 
-
-
     }
 
 }

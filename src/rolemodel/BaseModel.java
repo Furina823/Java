@@ -10,7 +10,7 @@ import java.util.List;
 
 public abstract class BaseModel {
 
-    protected MyFrame frame;
+    private MyFrame frame;
 
     abstract JPanel Home();
 
@@ -32,6 +32,7 @@ public abstract class BaseModel {
 
     // Constructor when account is created and information is available
     public BaseModel(
+            MyFrame frame,
             Emp empCompany,
             PersonalInfo empPersonalInformation,
             List<EmpNOK> empNextOfKin,
@@ -44,6 +45,7 @@ public abstract class BaseModel {
             ArrayList<PositionHistory> position,
             ArrayList<Bonus> bonus
     ) {
+        this.frame = frame;
         this.empCompany = empCompany;
         this.empPersonalInformation = empPersonalInformation;
         this.empNextOfKin = empNextOfKin;
@@ -100,4 +102,7 @@ public abstract class BaseModel {
     }
 
 
+    public MyFrame getFrame() {
+        return frame;
+    }
 }

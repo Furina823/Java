@@ -38,6 +38,7 @@ public class PayRollOfficer extends BaseModel {
             ArrayList<Bonus> bonus
     ) {
         super(
+                frame,
                 empCompany,
                 empPersonalInformation,
                 empNextOfKin,

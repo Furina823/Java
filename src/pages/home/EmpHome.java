@@ -11,7 +11,6 @@ public class EmpHome extends JPanel {
 
         this.setPreferredSize(new Dimension(850,600));
 
-        this.add(new JLabel("This is employee home"));
 
     }
 

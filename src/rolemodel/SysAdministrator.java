@@ -40,6 +40,7 @@ public class SysAdministrator extends BaseModel{
             ArrayList<Bonus> bonus
     ) {
         super(
+                frame,
                 empCompany,
                 empPersonalInformation,
                 empNextOfKin,

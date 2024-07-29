@@ -6,9 +6,10 @@ import javax.swing.*;
 
 public class Logout extends JPanel{
 
-    public Logout(BaseModel bm){
+    public Logout(BaseModel baseModel){
 
-
+        baseModel.getFrame().dispose();
+        new MyFrame();
 
     }
 
