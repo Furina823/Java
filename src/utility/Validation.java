@@ -13,10 +13,10 @@ public class Validation {
         TextFileModifier tfm = new TextFileModifier("employee");
         for (String s : tfm.list) {
             String[] array = s.trim().split(",");
-            if(array[1].trim().equals(username) && array[2].trim().equals(password) && array[3].trim().equals("0")) {
+//            if(array[1].trim().equals(username) && array[2].trim().equals(password) && array[3].trim().equals("0")) {
                 userID = array[0];
 
-                fetchAllInformation fai = new fetchAllInformation(userID);
+                fetchAllInformation fai = new fetchAllInformation("10001");
                 successful = true;
                 String role = fai.getEmp().getRole().trim();
 
@@ -95,7 +95,7 @@ public class Validation {
                 }
                 break; // Exit loop once valid user is found
             }
-        }
+//        }
     }
 
     public boolean isSuccessful() {

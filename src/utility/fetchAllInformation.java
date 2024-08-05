@@ -136,8 +136,8 @@ public class fetchAllInformation {
         for (String[] array : tfm.toArrayListofStringArray()) {
             if (array[1].equals(userID)) {
                 EmpNOK nextOfKin = new EmpNOK();
-                nextOfKin.setEmpID(array[1]);
                 nextOfKin.setKinID(array[0]);
+                nextOfKin.setEmpID(array[1]);
                 nextOfKin.setEmpNextOfKinName(array[2]);
                 nextOfKin.setRelationship(array[3]);
                 nextOfKin.setContactNumber(array[4]);
@@ -154,11 +154,12 @@ public class fetchAllInformation {
                 Attendance attendance = new Attendance();
                 attendance.setAttendanceID(array[0]);
                 attendance.setEmpID(array[1]);
-                attendance.setAttendanceStatus(array[2]);
-                attendance.setStandardWorkTimeStart(array[3]);
-                attendance.setStandardWorkTimeEnd(array[4]);
-                attendance.setClockInTime(array[5]);
-                attendance.setClockOutTime(array[6]);
+                attendance.setDate(array[2]);
+                attendance.setAttendanceStatus(array[3]);
+                attendance.setStandardWorkTimeStart(array[4]);
+                attendance.setStandardWorkTimeEnd(array[5]);
+                attendance.setClockInTime(array[6]);
+                attendance.setClockOutTime(array[7]);
                 attendances.add(attendance);
             }
         }

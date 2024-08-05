@@ -32,6 +32,9 @@ public class Attendance {
         this.clockOutTime = clockOutTime;
     }
 
+    public String getAttendanceID() {return attendanceID;}
+    public void setAttendanceID(String attendanceID) {this.attendanceID = attendanceID;}
+
     // Getters and setters
     public String getEmpID() { return empID; }
     public void setEmpID(String empID) { this.empID = empID; }
@@ -98,14 +101,6 @@ public class Attendance {
         }
 
         return records;
-    }
-
-    public String getAttendanceID() {
-        return attendanceID;
-    }
-
-    public void setAttendanceID(String attendanceID) {
-        this.attendanceID = attendanceID;
     }
 
 }

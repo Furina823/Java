@@ -18,4 +18,3 @@
 10018,maria.young@example.com,securePass18!,0,2018-12-05,NULL,9000,IT Analyst,IT,Employee
 10019,nathan.king@example.com,securePass19!,0,2022-07-15,NULL,8800,HR Specialist,Human Resources,Human Resource Officer
 10020,olivia.jones@example.com,securePass20!,0,2019-06-10,2023-10-01,9500,Sales Manager,Sales,Employee
-10021,olivia.jones@example.com,securePass20!,0,2019-06-10,2023-10-01,9500,Sales Manager,Sales,Employee
