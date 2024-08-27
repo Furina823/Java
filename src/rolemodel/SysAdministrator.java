@@ -3,7 +3,7 @@ package rolemodel;
 import datamodel.*;
 import pages.MyFrame;
 import pages.MyPanel;
-import pages.home.SysAdministratorHome;
+import pages.home.SysAdmin.SysAdministratorHome;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,9 +16,7 @@ public class SysAdministrator extends BaseModel{
 
     @Override
     JPanel Home() {
-        SysAdministratorHome home = new SysAdministratorHome(this);
-        home.setPreferredSize(new Dimension(850,600));
-        return home;
+        return new SysAdministratorHome(this);
     }
 
     // Constructor for Account created but no information
@@ -56,6 +54,11 @@ public class SysAdministrator extends BaseModel{
 
         this.frame = frame;
         frame.replacePanel(new MyPanel(Home(),this));
-
     }
+
+    @Override
+    public void reset() {
+        frame.replacePanel(new MyPanel(Home(),this));
+    }
+
 }

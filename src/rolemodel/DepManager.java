@@ -53,6 +53,10 @@ public class DepManager extends BaseModel {
 
         this.frame = frame;
         frame.replacePanel(new MyPanel(Home(), this));
-
     }
+
+    public void replacePanel(JPanel panel) {
+        this.frame.replacePanel(panel);
+    }
+
 }

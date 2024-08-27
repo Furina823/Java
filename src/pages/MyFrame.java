@@ -14,6 +14,7 @@ public class MyFrame extends JFrame {
         this.add(currentPanel);
         this.pack();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     // Common initialization method

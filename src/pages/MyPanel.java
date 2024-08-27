@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class MyPanel extends JPanel {
 
-    private final JSplitPane splitPane;
-    private JPanel rightPanel;
+    private static JSplitPane splitPane;
+    private static JPanel rightPanel;
 
     public MyPanel(JPanel panel, BaseModel bm) {
 
@@ -26,13 +26,17 @@ public class MyPanel extends JPanel {
         this.setLayout(new FlowLayout());
         this.add(splitPane, BorderLayout.CENTER);
         this.setPreferredSize(new Dimension(1100, 600));
+
     }
 
-    public void replaceRightPanel(JPanel newPanel) {
+    public static void replaceRightPanel(JPanel newPanel) {
+
         splitPane.setRightComponent(newPanel);
         rightPanel = newPanel;
         rightPanel.setPreferredSize(new Dimension(850, 600));
         splitPane.revalidate();
         splitPane.repaint();
+
     }
+
 }

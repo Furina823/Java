@@ -92,4 +92,28 @@ public class Emp {
 
         return records;
     }
+
+    public static Emp getRecord(String empID){
+        TextFileModifier tfm  = new TextFileModifier("employee");
+        for (String[] s : tfm.toArrayListofStringArray()) {
+            Emp emp = new Emp(
+                    s[0], // empID
+                    s[1], // empEmail
+                    s[2], // empPassword
+                    s[3], // IsBan
+                    s[4], // dateJoin
+                    s[5], // dateLeave
+                    s[6], // salary
+                    s[7], // position
+                    s[8], // department
+                    s[9]  // role
+            );
+            if (emp.getEmpID().equals(empID)) {
+                return emp;
+            }
+        }
+        return null;
+    }
+
+
 }

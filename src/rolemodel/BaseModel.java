@@ -105,4 +105,10 @@ public abstract class BaseModel {
     public MyFrame getFrame() {
         return frame;
     }
+
+    public void reset() {
+        // Reset panel state if needed
+    }
+
+
 }

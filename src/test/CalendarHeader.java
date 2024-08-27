@@ -16,11 +16,17 @@ public class CalendarHeader extends JPanel {
         setLayout(new BorderLayout());
 
         monthYearLabel = new JLabel("Month - Year", SwingConstants.CENTER);
+        monthYearLabel.setForeground(Color.white);
         monthYearLabel.setFont(new Font("Arial", Font.BOLD, 16));
         monthYearLabel.setPreferredSize(new Dimension(140, 30));
 
         leftArrowButton = new JButton("<");
+        leftArrowButton.setForeground(Color.white);
+        leftArrowButton.setBackground(Color.gray);
+        leftArrowButton.setOpaque(true);
+
         rightArrowButton = new JButton(">");
+        rightArrowButton.setForeground(Color.white);
 
         leftArrowButton.addActionListener(new ActionListener() {
             @Override

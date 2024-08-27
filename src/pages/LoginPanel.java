@@ -5,6 +5,7 @@ import utility.RoundedButton;
 import utility.Validation;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,11 +45,19 @@ public class LoginPanel extends JPanel implements ActionListener {
         leftLabelTitle.setForeground(Color.WHITE);
         leftLabelTitle.setOpaque(true);
 
-        usernameTextField = new JTextField();
+        usernameTextField = new JTextField(){
+            public void paintComponent(Graphics g) {
+                Graphics2D g2d = (Graphics2D) g;
+                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2d.setColor(Color.white);
+                g2d.drawRoundRect(1,1,getWidth()-1, getHeight()-1, 30,30);
+                super.paintComponent(g);
+            }
+        };
+        usernameTextField.setBorder(BorderFactory.createEmptyBorder());
+        usernameTextField.setOpaque(false);
         usernameTextField.setForeground(Color.white);
         usernameTextField.setBackground(Color.black);
-        usernameTextField.setCaretColor(Color.white);
-        usernameTextField.setBorder(new RoundedBorder(Color.white,1,10));
         usernameTextField.setFont(new Font("TimesRoman", Font.PLAIN, 15));
         usernameTextField.setPreferredSize(new Dimension(100,40));
         usernameTextField.setColumns(20);

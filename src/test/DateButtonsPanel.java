@@ -2,6 +2,7 @@ package test;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +10,12 @@ public class DateButtonsPanel extends JPanel {
 
     private static final int TOTAL_CELLS = 42; // 6 rows * 7 columns
     private List<JButton> buttons;
+    RightCalendarGUI rightCalendarGUI;
 
-    public DateButtonsPanel() {
+    public DateButtonsPanel(RightCalendarGUI rightCalendarGUI) {
+
+        this.rightCalendarGUI = rightCalendarGUI;
+
         setLayout(new GridLayout(6, 7)); // 6 rows, 7 columns
         buttons = new ArrayList<>(TOTAL_CELLS);
 
@@ -26,7 +31,7 @@ public class DateButtonsPanel extends JPanel {
         if (index >= 0 && index < buttons.size()) {
             JButton button = buttons.get(index);
             button.setBorder(BorderFactory.createCompoundBorder(
-                    new CustomRoundedBorder(4, color,18,18),
+                    new CustomRoundedBorder(4, color,18,18, CustomRoundedBorder.BorderSide.BOTTOM),
                     BorderFactory.createEmptyBorder(3, 3, 3, 3)
             ));
             button.setOpaque(true);
@@ -43,14 +48,19 @@ public class DateButtonsPanel extends JPanel {
         return button;
     }
 
-    public void updateButton(int index, String text, boolean isCurrentMonth) {
+    public void updateButton(int index, String text, boolean isCurrentMonth,String monthYear) {
         if (index >= 0 && index < buttons.size()) {
             JButton button = buttons.get(index);
             button.setText(text);
 
+            for (ActionListener al : button.getActionListeners()) {
+                button.removeActionListener(al);
+            }
+
             // Apply font color based on whether the day is from the current month or not
             if (isCurrentMonth) {
                 button.setForeground(Color.white); // Font color for current month days
+                button.addActionListener( e -> this.rightCalendarGUI.updateDate(text + " " + monthYear));
 
             } else {
                 button.setForeground(Color.white); // Font color for other month days
@@ -61,6 +71,7 @@ public class DateButtonsPanel extends JPanel {
     public void setButtonEnabled(int index, boolean enabled) {
         if (index >= 0 && index < buttons.size()) {
             buttons.get(index).setEnabled(enabled);
+
         }
     }
 

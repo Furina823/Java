@@ -1,5 +1,6 @@
 package pages;
 
+import pages.leave.FirstPage.LeavePanel;
 import rolemodel.BaseModel;
 import utility.iconResizeHandler;
 
@@ -22,11 +23,12 @@ public class NavigationalBar extends JPanel {
         }
 
         // Adding action labels to the navigation bar
-        this.add(createActionLabel(iconResizeHandlers[0].getImageIcon(),"Home", 70, () -> myPanel.replaceRightPanel(panel)));
-        this.add(createActionLabel(iconResizeHandlers[1].getImageIcon(),"Leave", 70, () -> myPanel.replaceRightPanel(new LeavePanel(bm))));
-        this.add(createActionLabel(iconResizeHandlers[2].getImageIcon(),"Profile", 70, () -> myPanel.replaceRightPanel(new ProfilePanel(bm))));
-        this.add(createActionLabel(iconResizeHandlers[3].getImageIcon(),"TimeTable", 70, () -> myPanel.replaceRightPanel(new TimeTablePanel(bm))));
-        this.add(createActionLabel(iconResizeHandlers[4].getImageIcon(),"Logout", 70, () -> myPanel.replaceRightPanel(new Logout(bm))));
+        this.add(createActionLabel(iconResizeHandlers[0].getImageIcon(),"Home", 70, () -> {
+            MyPanel.replaceRightPanel(panel); bm.reset();}));
+        this.add(createActionLabel(iconResizeHandlers[1].getImageIcon(),"Leave", 70, () -> MyPanel.replaceRightPanel(new LeavePanel(bm))));
+        this.add(createActionLabel(iconResizeHandlers[2].getImageIcon(),"Profile", 70, () -> MyPanel.replaceRightPanel(new ProfilePanel(bm))));
+        this.add(createActionLabel(iconResizeHandlers[3].getImageIcon(),"TimeTable", 70, () -> MyPanel.replaceRightPanel(new TimeTablePanel(bm))));
+        this.add(createActionLabel(iconResizeHandlers[4].getImageIcon(),"Logout", 70, () -> MyPanel.replaceRightPanel(new Logout(bm))));
          
         this.add(Box.createVerticalGlue());
 
@@ -78,4 +80,3 @@ public class NavigationalBar extends JPanel {
         return label;
     }
 }
-

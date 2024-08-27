@@ -22,7 +22,7 @@ public class Cells extends JPanel {
     private ArrayList<WorkSchedule> workSchedules;
     private ArrayList<Attendance> attendances;
 
-    public Cells(BaseModel baseModel) {
+    public Cells(BaseModel baseModel,RightCalendarGUI rightCalendarGUI) {
         this.baseModel = baseModel;
         this.leaveRequests = baseModel.getLeaveRequest();
         this.attendances = baseModel.getEmpAttendance();
@@ -31,12 +31,12 @@ public class Cells extends JPanel {
         this.workSchedules = schedule.getRecords();
 
         setLayout(new BorderLayout());
-        setPreferredSize(new Dimension(240, 240));
+        setPreferredSize(new Dimension(245, 240));
 
         currentDate = LocalDate.now();
         calendarHeader = new CalendarHeader();
         daysHeaderPanel = new DaysHeaderPanel();
-        dateButtonsPanel = new DateButtonsPanel();
+        dateButtonsPanel = new DateButtonsPanel(rightCalendarGUI);
 
         calendarHeader.setListener(new CalendarHeader.CalendarHeaderListener() {
             @Override
@@ -93,7 +93,7 @@ public class Cells extends JPanel {
                 isCurrentMonth = true;
             }
 
-            dateButtonsPanel.updateButton(i, String.valueOf(date.getDayOfMonth()), isCurrentMonth);
+            dateButtonsPanel.updateButton(i, String.valueOf(date.getDayOfMonth()), isCurrentMonth,monthYear);
             dateButtonsPanel.setButtonEnabled(i, isCurrentMonth);
 
             if (isCurrentMonth) {

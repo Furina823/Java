@@ -26,6 +26,7 @@ public class TextFileModifier {
                 try {
                     list = new ArrayList<>();
                     String line;
+
                     while((line = br.readLine()) != null) {
                         list.add(line);
                     }

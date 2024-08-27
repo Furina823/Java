@@ -1,4 +1,4 @@
-package pages;
+package pages.leave.FirstPage;
 
 import rolemodel.BaseModel;
 
@@ -8,7 +8,8 @@ public class LeavePanel extends JPanel{
 
     public LeavePanel(BaseModel bm){
 
-
+        this.add(new LeaveHeader());
+        this.add(new LeaveAddRecord(bm));
 
     }
 
