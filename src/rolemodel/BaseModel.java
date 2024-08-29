@@ -2,6 +2,8 @@ package rolemodel;
 
 import datamodel.*;
 import pages.MyFrame;
+import pages.MyPanel;
+import pages.leave.FirstPage.LeavePanel;
 
 import javax.swing.*;
 import java.lang.reflect.Array;
@@ -20,6 +22,11 @@ public abstract class BaseModel {
     private EmpBackground empBackground;
     private ArrayList<Attendance> empAttendance;
     private ArrayList<Leave> empLeave;
+
+    public void setLeaveRequest(ArrayList<LeaveRequest> leaveRequest) {
+        this.leaveRequest = leaveRequest;
+    }
+
     private ArrayList<LeaveRequest> leaveRequest;
     private ArrayList<SalaryHistory> salary;
     private ArrayList<Paid> tax;

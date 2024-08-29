@@ -7,6 +7,7 @@ import utility.TextFileModifier;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ACBody_List extends JPanel {
@@ -15,8 +16,35 @@ public class ACBody_List extends JPanel {
     private Emp emp;
     private TextFileModifier tfm;
     private JButton viewButton;
+    private JLabel usernameLabel;
 
-    public ACBody_List(String username, String empID) {
+    public ActionListener getActionListener() {
+        return actionListener;
+    }
+
+    private ActionListener actionListener;
+
+    public JLabel getIDLabel() {
+        return IDLabel;
+    }
+
+    private JLabel IDLabel;
+
+    public JPanel getRightPanel() {
+        return rightPanel;
+    }
+
+    public JButton getViewButton() {
+        return viewButton;
+    }
+
+    public JButton getActionButton() {
+        return actionButton;
+    }
+
+    private JPanel rightPanel;
+
+    public ACBody_List(String email, String empID) {
         emp = Emp.getRecord(empID);
         tfm = new TextFileModifier("employee");
 
@@ -25,24 +53,24 @@ public class ACBody_List extends JPanel {
         leftPanel.setLayout(new FlowLayout(FlowLayout.LEADING)); // Vertical layout
         leftPanel.setBackground(new Color(47, 47, 47));
 
-        JLabel usernameLabel = new JLabel(username);
-        usernameLabel.setFont(FontUtils.getPoppinsFontWithColor(12f, Color.white));
-        JLabel IDLabel = new JLabel(empID);
-        IDLabel.setFont(FontUtils.getPoppinsFontWithColor(12f, Color.white));
+        usernameLabel = new JLabel(email);
+        usernameLabel.setFont(FontUtils.getPoppinsFontWithColor(16f, Color.white));
+        IDLabel = new JLabel(empID);
+        IDLabel.setFont(FontUtils.getPoppinsFontWithColor(16f, Color.white));
 
         leftPanel.add(usernameLabel);
         leftPanel.add(IDLabel);
         leftPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 0, 10)); // Add padding
 
         // Right panel (contains the action button)
-        JPanel rightPanel = new JPanel();
+        rightPanel = new JPanel();
         rightPanel.setLayout(new FlowLayout(FlowLayout.TRAILING)); // Horizontal layout
         rightPanel.setBackground(new Color(47, 47, 47));
 
+        actionListener = e -> MyPanel.replaceRightPanel(new Register(emp.getDepartment(),emp));
+
         viewButton = new JButton("View");
-        viewButton.addActionListener((e)->{
-            MyPanel.replaceRightPanel(new Register(emp.getDepartment(),emp));
-        });
+        viewButton.addActionListener(actionListener);
 
         actionButton = new JButton();
         updateButton(); // Set initial button text and functionality

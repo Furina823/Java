@@ -1,5 +1,6 @@
 package pages.home.SysAdmin;
 
+import pages.MyPanel;
 import rolemodel.SysAdministrator;
 import utility.RoundedBorder;
 
@@ -11,14 +12,10 @@ import java.awt.event.MouseListener;
 public class DepartmentLabel extends JLabel implements MouseListener{
 
     private String text;
-    private SysAddGUI panel;
     private String department;
-    SysAdministrator admin;
 
-    public DepartmentLabel(String s, SysAddGUI panel, SysAdministrator admin){
+    public DepartmentLabel(String s){
 
-        this.admin = admin;
-        this.panel = panel;
         text = s + " >";
         department = s;
         this.setBorder(new RoundedBorder(Color.black, 2,10));
@@ -36,9 +33,7 @@ public class DepartmentLabel extends JLabel implements MouseListener{
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == this){
 
-            if(panel != null){
-                panel.replacePanel(new AC(department));
-            }
+            MyPanel.replaceRightPanel(new AC(department));
 
         }
     }

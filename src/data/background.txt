@@ -1,5 +1,5 @@
 10001,5 years at TechCorp; 3 years at MediaWorks,Bachelor's Degree in Marketing,Certified Digital Marketer; Certified SEO Specialist,Member of American Marketing Association,SEO; Social Media Management,English; Spanish
-10002,8 years at FinSolutions; 2 years at QuickBooks,Bachelor's Degree in Finance,Certified Public Accountant (CPA),Member of CFA Institute,Financial Analysis; Tax Planning,English
+10002,4 years at WebSolutions; 2 years at DataGenius,Bachelor's Degree in Computer Science,Certified Data Scientist; Certified Java Developer,Member of IEEE,Data Analysis; Java Programming,English; French
 10003,10 years at NetSecure; 4 years at InfoTech,Master's Degree in Information Technology,Certified Information Systems Security Professional (CISSP),Member of ISACA,Network Security; Systems Administration,English; French
 10004,4 years at HRWorld; 2 years at PeopleFirst,Bachelor's Degree in Human Resources,Certified Human Resources Professional (CHRP),Member of Society for Human Resource Management (SHRM,Employee Relations; Recruitment,English; German
 10005,6 years at RetailCorp; 3 years at TrendyGoods,Associate's Degree in Business Administration,Certified Sales Professional (CSP),Member of National Association of Sales Professionals (NASP),Customer Service; Sales Strategy,English; Mandarin

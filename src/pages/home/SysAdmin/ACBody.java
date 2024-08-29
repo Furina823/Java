@@ -1,6 +1,7 @@
 package pages.home.SysAdmin;
 
 import datamodel.Emp;
+import utility.EmptyPanel;
 import utility.InvisibleScrollBarUI;
 
 import javax.swing.*;
@@ -8,19 +9,26 @@ import java.awt.*;
 
 public class ACBody extends JPanel {
 
+    private AddRecord record;
+    private JPanel listView;
+
     public ACBody(String department) {
+
+        record = new AddRecord(department);
+
         // Set layout for this panel
         setLayout(new BorderLayout());
 
-        this.add(new AddRecord(department), BorderLayout.NORTH);
+        this.add(record, BorderLayout.NORTH);
 
-        JPanel listView = new JPanel();
+        listView = new JPanel();
         listView.setLayout(new BoxLayout(listView, BoxLayout.Y_AXIS));
 
         Emp emp = new Emp();
         for(Emp e : emp.getEmpRecords()){
             if(e.getDepartment().equals(department)){
                 listView.add(new ACBody_List(e.getEmpEmail(),e.getEmpID()));
+                listView.add(new EmptyPanel());
             }
         }
 
@@ -38,4 +46,14 @@ public class ACBody extends JPanel {
         this.setPreferredSize(new Dimension(700, 500));
 
     }
+
+    public AddRecord getAddRecord(){
+        return this.record;
+    }
+
+    public JPanel getlistView(){
+        return this.listView;
+    }
+
+
 }

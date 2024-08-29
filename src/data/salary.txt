@@ -18,3 +18,4 @@
 18,10018,1150,2024-05-01,Performance-Based Raise
 19,10019,1200,2024-06-01,Promotion Increment
 20,10020,1250,2024-07-01,Cost of Living Adjustment
+21,10012,550,2024-12-01,Annual Salary Increment

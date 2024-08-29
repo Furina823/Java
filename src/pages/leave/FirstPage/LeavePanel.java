@@ -10,6 +10,7 @@ public class LeavePanel extends JPanel{
 
         this.add(new LeaveHeader());
         this.add(new LeaveAddRecord(bm));
+        this.add(new LeaveBody(bm, this));
 
     }
 

@@ -9,15 +9,17 @@ public class MyPanel extends JPanel {
 
     private static JSplitPane splitPane;
     private static JPanel rightPanel;
+    private static NavigationalBar nav;
 
     public MyPanel(JPanel panel, BaseModel bm) {
 
+        nav = new NavigationalBar(this, panel, bm);
         JPanel leftPanel = new JPanel();
         leftPanel.setBackground(Color.red);
 
         rightPanel = new JPanel();
         rightPanel.setBackground(Color.blue);
-        splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new NavigationalBar(this, panel, bm), panel);
+        splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, nav, panel);
         splitPane.setDividerLocation(250);
         splitPane.setResizeWeight(0.0);
         splitPane.setBackground(Color.black);
@@ -38,5 +40,7 @@ public class MyPanel extends JPanel {
         splitPane.repaint();
 
     }
+
+
 
 }

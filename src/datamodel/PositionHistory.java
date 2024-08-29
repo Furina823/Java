@@ -40,7 +40,7 @@ public class PositionHistory {
 
     public ArrayList<PositionHistory> getRecords() {
         ArrayList<PositionHistory> records = new ArrayList<>();
-        TextFileModifier tfm = new TextFileModifier("position_history");
+        TextFileModifier tfm = new TextFileModifier("position");
         for (String[] s : tfm.toArrayListofStringArray()) {
             PositionHistory positionHistory = new PositionHistory(s[0], s[1], s[2], s[3], s[4]);
             records.add(positionHistory);
@@ -60,7 +60,7 @@ public class PositionHistory {
 
     public ArrayList<PositionHistory> getRecordsByEmpId(String empId) {
         ArrayList<PositionHistory> records = new ArrayList<>();
-        TextFileModifier tfm = new TextFileModifier("position_history");
+        TextFileModifier tfm = new TextFileModifier("position");
         for (String[] s : tfm.toArrayListofStringArray()) {
             if (s[2].equals(empId)) {
                 PositionHistory positionHistory = new PositionHistory(s[0], s[1], s[2], s[3], s[4]);

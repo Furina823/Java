@@ -3,7 +3,7 @@ package rolemodel;
 import datamodel.*;
 import pages.MyFrame;
 import pages.MyPanel;
-import pages.home.HROfficerHome;
+import pages.home.HROfficer.HROfficerHome;
 
 import javax.swing.*;
 import java.util.ArrayList;

@@ -27,6 +27,8 @@ public class RegisterContent extends JPanel {
         emailText.setEditable(false);
         emailText.setText(emp.getEmpEmail());
         emailText.setFocusable(false);
+        passwordText.setEditable(false);
+        passwordText.setFocusable(false);
         passwordText.setText(emp.getEmpPassword());
         changeButton(emp);
     }

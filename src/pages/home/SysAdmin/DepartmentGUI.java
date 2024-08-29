@@ -1,18 +1,22 @@
 package pages.home.SysAdmin;
 
 import rolemodel.SysAdministrator;
-import utility.RoundedBorder;
+import utility.EmptyPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 public class DepartmentGUI extends JPanel {
 
-    public DepartmentGUI(SysAdministrator administrator,SysAddGUI panel) {
+    private JLabel headerLabel;
+    private JPanel contentPanel;
+
+    public DepartmentGUI() {
 
         Departments dep = new Departments();
 
-        JLabel headerLabel = new JLabel("   Account Management:");
+        headerLabel = new JLabel("   Account Management:");
         headerLabel.setFont(new Font("Poppins", Font.BOLD, 20));
         headerLabel.setForeground(Color.white);
         headerLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
@@ -23,7 +27,7 @@ public class DepartmentGUI extends JPanel {
         headerPanel.setBackground(Color.black);
         headerPanel.setPreferredSize(new Dimension(850, 50));
 
-        JPanel contentPanel = new JPanel();
+        contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         contentPanel.setPreferredSize(new Dimension(850,600));
         contentPanel.setBackground(null);
@@ -31,7 +35,7 @@ public class DepartmentGUI extends JPanel {
         for(String s : dep.getUniqueDepartments()){
 
             contentPanel.add(new EmptyPanel());
-            contentPanel.add(new DepartmentLabel(s,panel,administrator));
+            contentPanel.add(new DepartmentLabel(s));
 
         }
 
@@ -42,5 +46,14 @@ public class DepartmentGUI extends JPanel {
         this.setBackground(Color.black);
 
     }
+
+    public void setHeaderLabel(String s){
+        headerLabel.setText(s);
+    }
+
+    public JPanel getContentPanel(){
+        return contentPanel;
+    }
+
 
 }

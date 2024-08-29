@@ -12,7 +12,7 @@ public class SysAddGUI extends JPanel {
 
     public SysAddGUI(SysAdministrator admin) {
         // Initialize the original panel
-        originalPanel = new DepartmentGUI(admin, this);
+        originalPanel = new DepartmentGUI();
         currentPanel = originalPanel; // Set the current panel to the original
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

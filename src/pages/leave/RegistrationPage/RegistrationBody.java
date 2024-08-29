@@ -1,15 +1,18 @@
 package pages.leave.RegistrationPage;
 
 import datamodel.Leave;
+import datamodel.LeaveRequest;
 import datamodel.WorkSchedule;
 import rolemodel.BaseModel;
+import utility.TextFileModifier;
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
 
 public class RegistrationBody extends JPanel {
 
@@ -86,6 +89,9 @@ public class RegistrationBody extends JPanel {
 
         // Third Row third column
         JButton addbutton = new JButton("Add");
+        addbutton.addActionListener((e)->{
+            ValidateLeave((String)leaveTypeComboBox.getSelectedItem(),dayStartField.getText(),dayEndField.getText(),bm);
+        });
 
         dayEndPanel.add(dayEndLabel);
         dayEndPanel.add(dayEndField);
@@ -107,7 +113,7 @@ public class RegistrationBody extends JPanel {
     }
 
     public boolean isMaternity(){
-        return model.getEmpPersonalInformation().getGender().toLowerCase().equals("female");
+        return model.getEmpPersonalInformation().getGender().equalsIgnoreCase("female");
     }
 
     public String[] leaveType() {
@@ -131,8 +137,15 @@ public class RegistrationBody extends JPanel {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         DateTimeFormatter year = DateTimeFormatter.ofPattern("yyyy");
 
+        if (!isValidDate(initialLeave) || !isValidDate(EndLeave)) {
+            JOptionPane.showMessageDialog(null, "Invalid date format. Please enter dates in yyyy-MM-dd format.");
+            initializeLeaveDate();
+            return;  // Stop further processing if dates are invalid
+        }
+
         LocalDate initialDate = LocalDate.parse(initialLeave, formatter);
         LocalDate endDate = LocalDate.parse(EndLeave, formatter);
+
         LocalDate currentDate = LocalDate.now();
 
         // Get the current year
@@ -162,28 +175,50 @@ public class RegistrationBody extends JPanel {
 
         if(!leaveType.equals("Maternity")) {
 
-            // Assume that the leave have to be request earlier & cannot reqeust leave for the same day
-            if (initialDate.isEqual(currentDate)) {
-                JOptionPane.showMessageDialog(null, "Request leave for current date is unable");
+
+            // Assume that the leave have to be request earlier & cannot request leave for the same day
+            if (initialDate.isEqual(currentDate) || initialDate.isBefore(currentDate)) {
+                JOptionPane.showMessageDialog(null, "Request leave for current or previous date is unable");
                 initializeLeaveDate();
-            } else if (endDate.isBefore(initialDate)) {
+            } else if (endDate.isBefore(initialDate) || endDate.isEqual(currentDate)) {
                 JOptionPane.showMessageDialog(null, "The Leave End Date before Leave Start Date is not an appropriate format");
                 initializeLeaveDate();
             } else if (number < calculateLeaveDay(initialDate, endDate)) {
-                JOptionPane.showMessageDialog(null, "The Leave amount request is more than your remaining leave amount. There is " + number + " of " + leaveType + " while you had request for " + calculateLeaveDay(initialDate, endDate) + " day.");
+                JOptionPane.showMessageDialog(null, "The Leave amount request is more than your remaining leave amount. There is "
+                        + number + " of " + leaveType + " while you had request for " + calculateLeaveDay(initialDate, endDate) + " day.");
+                initializeLeaveDate();
+            } else if(notLabeled(initialDate.toString()) || notLabeled(endDate.toString())){
+                JOptionPane.showMessageDialog(null,"The date is not labeled as work day or holiday, kindly contact Human Resource Officer");
+                initializeLeaveDate();
+            }else if(isHoliday(initialDate.toString())){
+                JOptionPane.showMessageDialog(null, "Request leave for current date is unable due to initial date is holiday");
+                initializeLeaveDate();
+            } else if(isHoliday(endDate.toString())){
+                JOptionPane.showMessageDialog(null, "Request leave for current date is unable due to end date is holiday");
+                initializeLeaveDate();
+            }else {
+
+                LeaveRequest request = new LeaveRequest();
+                request.setEmpId(bm.getEmpCompany().getEmpID());
+                request.setLeaveType(leaveType);
+                request.setStatus("Pending");
+                request.setLeaveRequestDate(currentDate.toString());
+                request.setLeaveStartDate(initialDate.toString());
+                request.setLeaveEndDate(endDate.toString());
+                request.setApprovalManager("0");
+
+                sentLeaveRequest(request);
+
+                bm.setLeaveRequest(new LeaveRequest().getRecordsByEmpId(bm.getEmpCompany().getEmpID()));
+
+                Container parent = this.getParent();
+
+                    parent.revalidate();
+                    parent.repaint();
+
+                JOptionPane.showMessageDialog(null, "The Leave Request had applied");
+                initializeLeaveDate();
             }
-
-            // The start Date and end date is not going to be holiday
-            // but if the days between start and end had include holiday
-            // perform subtraction to the leave applied
-
-            // Holiday Priority > Leave
-            // If the leave had include holiday, the calendar should mark as holiday
-            // and the number of leave will not decrease if holiday
-
-            // Maternity leave have the highest priority,
-            // Maternity will not have subtraction even the day is holiday, weekends
-
         } else {
 
         }
@@ -203,5 +238,55 @@ public class RegistrationBody extends JPanel {
 
     }
 
+    public boolean isHoliday(String date){
+
+        WorkSchedule workSchedule = new WorkSchedule();
+        return workSchedule.getRecordByDate(date).getIsHoliday().equals("1");
+
+    }
+
+    public boolean notLabeled(String date){
+
+        WorkSchedule workSchedule = new WorkSchedule();
+        if(workSchedule.getRecordByDate(date) == null){
+            return true;
+        }
+        return false;
+    }
+
+    public void sentLeaveRequest(LeaveRequest r){
+
+        TextFileModifier tfm = new TextFileModifier("leave_request");
+        Field[] fields = r.getClass().getDeclaredFields();
+        String[] array = new String[fields.length-1];
+
+        int index = 0;
+        for (Field field : fields) {
+            field.setAccessible(true);
+            try {
+                Object value = field.get(r);  // Get the value of the field
+                if(value != null) {
+                    array[index++] = value.toString();
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+
+        tfm.createRecord(array);
+
+    }
+
+    private boolean isValidDate(String dateStr) {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        try {
+            LocalDate.parse(dateStr, dateFormatter);
+            return true;
+        } catch (DateTimeParseException e) {
+            return false;
+        }
+    }
+
+    // Overlapping is not validated yet
 
 }

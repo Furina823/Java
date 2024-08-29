@@ -85,4 +85,10 @@ public class LeaveRequest {
         }
         return records;
     }
+
+    public void deleteRecordByLeaveId(String leaveId) {
+        TextFileModifier tfm = new TextFileModifier("leave_request");
+        tfm.deleteRecord(leaveId);
+    }
+
 }
