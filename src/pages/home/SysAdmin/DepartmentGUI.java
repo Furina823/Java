@@ -14,6 +14,12 @@ public class DepartmentGUI extends JPanel {
     private JLabel headerLabel;
     private JPanel contentPanel;
 
+    public JLabel getNext() {
+        return next;
+    }
+
+    private JLabel next;
+
     public DepartmentGUI() {
 
         Departments dep = new Departments();
@@ -44,7 +50,7 @@ public class DepartmentGUI extends JPanel {
         contentPanel.add(formatlabel(""));
         contentPanel.add(formatlabel(""));
 
-        JLabel next = formatlabel("Set Standardized Working Hour");
+        next = formatlabel("Set Standardized Working Hour");
         contentPanel.add(next);
         next.addMouseListener(new MouseAdapter() {
             @Override

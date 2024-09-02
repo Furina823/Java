@@ -92,14 +92,13 @@ public class PaySlip {
             topPanel.setLayout(new FlowLayout(FlowLayout.LEADING));
             topPanel.add(companyLabel);
 
-            double net = Double.parseDouble(paid.getBasicGross()) -
+            double net = Double.parseDouble(paid.getBasicGross()) + Double.parseDouble(paid.getAllowance()) + Double.parseDouble(paid.getBonus()) -
             Double.parseDouble(paid.getEpfEmpe()) - Double.parseDouble(paid.getSocsoEmpe()) -
             Double.parseDouble(paid.getEisEmpe()) - Double.parseDouble(paid.getPcbEmpe());
 
             JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
             JLabel netAmountLabel = new JLabel("Net Amount:"+net);
             netAmountLabel.setFont(FontUtils.getPoppinsFontWithColor(16f,Color.white));
-
 
             bottomPanel.add(netAmountLabel);
 

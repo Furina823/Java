@@ -22,6 +22,7 @@ public class PayRollOfficerHome extends DepartmentGUI {
     public PayRollOfficerHome() {
 
         setHeaderLabel("Payroll Management:");
+        getContentPanel().remove(getNext());
 
         for(Component component : getContentPanel().getComponents()){
             if(component instanceof DepartmentLabel departmentLabel){
@@ -59,7 +60,7 @@ public class PayRollOfficerHome extends DepartmentGUI {
                 PersonalInfo info = PersonalInfo.getPersonalInfo(list.getIDLabel().getText());
                 list.setUsernameLabelText(info.getFirstname()+" "+info.getLastname());
                 list.getViewButton().setFocusPainted(false);
-                list.getViewButton().setFont(FontUtils.getPoppinsFont(14f));
+                list.getViewButton().setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
                 list.getViewButton().addActionListener(
                         new ActionListener() {
                             @Override

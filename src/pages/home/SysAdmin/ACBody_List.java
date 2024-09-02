@@ -70,6 +70,7 @@ public class ACBody_List extends JPanel {
         leftPanel.setBackground(new Color(47, 47, 47));
 
         usernameLabel = new JLabel(email);
+        usernameLabel.setPreferredSize(new Dimension(300,50));
         usernameLabel.setFont(FontUtils.getPoppinsFontWithColor(16f, Color.white));
         IDLabel = new JLabel(empID);
         IDLabel.setFont(FontUtils.getPoppinsFontWithColor(16f, Color.white));

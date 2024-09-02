@@ -30,7 +30,7 @@ public class Validation {
 //            if(array[1].trim().equals(username) && array[2].trim().equals(password) && array[3].trim().equals("0")) {
                 userID = array[0];
 
-                fetchAllInformation fai = new fetchAllInformation("10008");
+                fetchAllInformation fai = new fetchAllInformation("10001");
                 successful = true;
                 String role = fai.getEmp().getRole().trim();
 
