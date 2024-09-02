@@ -4,6 +4,7 @@ import rolemodel.SysAdministrator;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Optional;
 
 public class AC extends JPanel {
 
@@ -18,6 +19,7 @@ public class AC extends JPanel {
 
         flowPanel = new JPanel();
         flowPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        flowPanel.setBackground(Color.black);
 
         JPanel leftEmptyPanel = new JPanel();
         leftEmptyPanel.setPreferredSize(new Dimension(50,0));
@@ -30,8 +32,6 @@ public class AC extends JPanel {
 
         this.setLayout(new BorderLayout());
         this.add(flowPanel,BorderLayout.CENTER);
-        this.add(leftEmptyPanel,BorderLayout.WEST);
-        this.add(rightEmptyPanel,BorderLayout.EAST);
         this.setPreferredSize(new Dimension(850,600));
 
     }
@@ -40,11 +40,11 @@ public class AC extends JPanel {
         return this.flowPanel;
     }
 
-    protected ACHeader getHeader(){
+    public ACHeader getHeader(){
         return this.header;
     }
 
-    protected ACBody getBody(){
+    public ACBody getBody(){
         return this.body;
     }
 

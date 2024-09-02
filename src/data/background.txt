@@ -18,3 +18,4 @@
 10018,6 years at TechSecure; 1 year at CyberSafe,Master's Degree in Cybersecurity,Certified Network Defender (CND),Member of (ISC)²,Network Security; Incident Response,English; Portuguese
 10019,4 years at HRMaster; 1 year at PeopleWorks,Bachelor's Degree in Human Resources,Certified HR Specialist (CHRS),Member of Society for Human Resource Management (SHRM),Employee Relations; HR Policy,English
 10020,5 years at SalesPlus; 2 years at MarketMasters,Bachelor's Degree in Sales,Certified Sales Manager (CSM),Member of National Association of Sales Professionals (NASP),Sales Strategy; Customer Relations,English
+10021,asd,asd,asd,asd,asd,asd

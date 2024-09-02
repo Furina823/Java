@@ -116,6 +116,21 @@ public class TextFileModifier {
         }
     }
 
+    public void manualCreateRecord(String[] content){
+
+        String path = this.path;
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
+            // Join the array into a single string separated by commas
+            bw.write(String.join(",", content));
+            bw.newLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
     private static int getId(String path) {
         int id = 0;
 

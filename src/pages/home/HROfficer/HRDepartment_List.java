@@ -24,7 +24,7 @@ public class HRDepartment_List extends ACBody_List {
     private void onView(String id){
 
         System.out.println(id);
-        MyPanel.replaceRightPanel(new Personal(id));
+        MyPanel.replaceRightPanel(new ProfileCategories(id));
 
     }
 

@@ -2,11 +2,8 @@ package rolemodel;
 
 import datamodel.*;
 import pages.MyFrame;
-import pages.MyPanel;
-import pages.leave.FirstPage.LeavePanel;
 
 import javax.swing.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 

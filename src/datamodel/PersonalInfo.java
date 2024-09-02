@@ -88,7 +88,7 @@ public class PersonalInfo {
     public void setMarital_status(String marital_status) { this.marital_status = marital_status; }
 
     // Method to retrieve personal info based on empID
-    public PersonalInfo getPersonalInfo(String empID) {
+    public static PersonalInfo getPersonalInfo(String empID) {
         TextFileModifier tfm = new TextFileModifier("personal_information");
         for (String[] array : tfm.toArrayListofStringArray()) {
             if (array[0].equals(empID)) {

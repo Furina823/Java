@@ -3,6 +3,8 @@ package pages.home.SysAdmin;
 import datamodel.Emp;
 import pages.MyPanel;
 import utility.FontUtils;
+import utility.RoundedBorder;
+import utility.RoundedButton;
 import utility.TextFileModifier;
 
 import javax.swing.*;
@@ -15,8 +17,23 @@ public class ACBody_List extends JPanel {
     private JButton actionButton;
     private Emp emp;
     private TextFileModifier tfm;
-    private JButton viewButton;
+    private RoundedButton viewButton;
+
+    public JLabel getUsernameLabel() {
+        return usernameLabel;
+    }
+
+    public void setUsernameLabelText(String s) {
+        this.usernameLabel.setText(s);
+    }
+
     private JLabel usernameLabel;
+
+    public JPanel getLeftPanel() {
+        return leftPanel;
+    }
+
+    private JPanel leftPanel;
 
     public ActionListener getActionListener() {
         return actionListener;
@@ -49,7 +66,7 @@ public class ACBody_List extends JPanel {
         tfm = new TextFileModifier("employee");
 
         // Left panel with user information
-        JPanel leftPanel = new JPanel();
+        leftPanel = new JPanel();
         leftPanel.setLayout(new FlowLayout(FlowLayout.LEADING)); // Vertical layout
         leftPanel.setBackground(new Color(47, 47, 47));
 
@@ -60,7 +77,6 @@ public class ACBody_List extends JPanel {
 
         leftPanel.add(usernameLabel);
         leftPanel.add(IDLabel);
-        leftPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 0, 10)); // Add padding
 
         // Right panel (contains the action button)
         rightPanel = new JPanel();
@@ -69,7 +85,7 @@ public class ACBody_List extends JPanel {
 
         actionListener = e -> MyPanel.replaceRightPanel(new Register(emp.getDepartment(),emp));
 
-        viewButton = new JButton("View");
+        viewButton = new RoundedButton("View",Color.white);
         viewButton.addActionListener(actionListener);
 
         actionButton = new JButton();
@@ -84,9 +100,11 @@ public class ACBody_List extends JPanel {
         this.add(rightPanel, BorderLayout.EAST);
 
         // Set preferred and maximum sizes for scrolling
-        this.setPreferredSize(new Dimension(700, 50));
-        this.setMaximumSize(new Dimension(700, 50));
+        this.setPreferredSize(new Dimension(850, 50));
+        this.setMaximumSize(new Dimension(850, 50));
         this.setBackground(new Color(47, 47, 47));
+        this.setBorder(new RoundedBorder(new Color(47,47,47),2,8));
+
     }
 
     private void updateButton() {

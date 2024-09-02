@@ -12,13 +12,12 @@ public class LeaveRequest {
     private String leaveRequestDate;
     private String leaveStartDate;
     private String leaveEndDate;
-    private String approvalManager;
 
     public LeaveRequest() {
     }
 
     public LeaveRequest(String leaveId, String empId, String leaveType, String status, String leaveRequestDate,
-                        String leaveStartDate, String leaveEndDate, String approvalManager) {
+                        String leaveStartDate, String leaveEndDate) {
         this.leaveId = leaveId;
         this.empId = empId;
         this.leaveType = leaveType;
@@ -26,7 +25,6 @@ public class LeaveRequest {
         this.leaveRequestDate = leaveRequestDate;
         this.leaveStartDate = leaveStartDate;
         this.leaveEndDate = leaveEndDate;
-        this.approvalManager = approvalManager;
     }
 
     // Getters and setters in one line for brevity
@@ -51,14 +49,11 @@ public class LeaveRequest {
     public String getLeaveEndDate() { return leaveEndDate; }
     public void setLeaveEndDate(String leaveEndDate) { this.leaveEndDate = leaveEndDate; }
 
-    public String getApprovalManager() { return approvalManager; }
-    public void setApprovalManager(String approvalManager) { this.approvalManager = approvalManager; }
-
-    public ArrayList<LeaveRequest> getRecords() {
+    public static ArrayList<LeaveRequest> getRecords() {
         ArrayList<LeaveRequest> records = new ArrayList<>();
         TextFileModifier tfm = new TextFileModifier("leave_request");
         for (String[] s : tfm.toArrayListofStringArray()) {
-            LeaveRequest leaveRequest = new LeaveRequest(s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7]);
+            LeaveRequest leaveRequest = new LeaveRequest(s[0], s[1], s[2], s[3], s[4], s[5], s[6]);
             records.add(leaveRequest);
         }
         return records;
@@ -68,18 +63,18 @@ public class LeaveRequest {
         TextFileModifier tfm = new TextFileModifier("leave_request");
         for (String[] s : tfm.toArrayListofStringArray()) {
             if (s[0].equals(leaveId)) {
-                return new LeaveRequest(s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7]);
+                return new LeaveRequest(s[0], s[1], s[2], s[3], s[4], s[5], s[6]);
             }
         }
         return null;
     }
 
-    public ArrayList<LeaveRequest> getRecordsByEmpId(String empId) {
+    public static ArrayList<LeaveRequest> getRecordsByEmpId(String empId) {
         ArrayList<LeaveRequest> records = new ArrayList<>();
         TextFileModifier tfm = new TextFileModifier("leave_request");
         for (String[] s : tfm.toArrayListofStringArray()) {
             if (s[1].equals(empId)) {
-                LeaveRequest leaveRequest = new LeaveRequest(s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7]);
+                LeaveRequest leaveRequest = new LeaveRequest(s[0], s[1], s[2], s[3], s[4], s[5], s[6]);
                 records.add(leaveRequest);
             }
         }

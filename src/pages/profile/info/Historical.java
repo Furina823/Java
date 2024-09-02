@@ -17,12 +17,6 @@ public class Historical extends JPanel {
         JPanel flowPanel = new JPanel();
         flowPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        JPanel leftEmptyPanel = new JPanel();
-        leftEmptyPanel.setPreferredSize(new Dimension(50, 0));
-
-        JPanel rightEmptyPanel = new JPanel();
-        rightEmptyPanel.setPreferredSize(new Dimension(50, 0));
-
         flowPanel.add(new ACHeader("Historical"));
         flowPanel.add(new History_Label("Position",model));
         flowPanel.add(new History_Label("Salary Increment",model));
@@ -31,9 +25,7 @@ public class Historical extends JPanel {
 
         this.setLayout(new BorderLayout());
         this.add(flowPanel, BorderLayout.CENTER);
-        this.add(leftEmptyPanel, BorderLayout.WEST);
-        this.add(rightEmptyPanel, BorderLayout.EAST);
-        this.setPreferredSize(new Dimension(850, 600));
+        this.setPreferredSize(new Dimension(830, 600));
         this.setBackground(Color.black);
 
     }

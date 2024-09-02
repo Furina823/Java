@@ -103,13 +103,26 @@ public class Paid {
         return records;
     }
 
-    public Paid getRecordByEmpIdAndDate(String empId, String date) {
+    public static Paid getRecordByTaxID(String TaxID) {
         TextFileModifier tfm = new TextFileModifier("paid");
         for (String[] s : tfm.toArrayListofStringArray()) {
-            if (s[1].equals(empId) && s[2].equals(date)) {
+            if (s[0].equals(TaxID)) {
                 return new Paid(s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], s[8], s[9], s[10], s[11], s[12], s[13], s[14], s[15]);
             }
         }
         return null;
     }
+
+    public static ArrayList<Paid> getRecordByEmpId(String empId) {
+        ArrayList<Paid> p = new ArrayList<>();
+        TextFileModifier tfm = new TextFileModifier("paid");
+        for (String[] s : tfm.toArrayListofStringArray()) {
+            if (s[1].equals(empId)) {
+                Paid paid = new Paid(s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], s[8], s[9], s[10], s[11], s[12], s[13], s[14], s[15]);
+                p.add(paid);
+            }
+        }
+        return p;
+    }
+
 }

@@ -27,8 +27,7 @@ public class NavigationalBar extends JPanel {
         this.add(createActionLabel(iconResizeHandlers[0].getImageIcon(),"Home", 70, () -> {
             MyPanel.replaceRightPanel(panel); bm.reset();}));
         this.add(createActionLabel(iconResizeHandlers[1].getImageIcon(),"Leave", 70, () -> {
-            MyPanel.replaceRightPanel(new LeavePanel(bm));
-
+            MyPanel.replaceRightPanel(new LeavePanel(bm,panel));
         }));
         this.add(createActionLabel(iconResizeHandlers[2].getImageIcon(),"Profile", 70, () -> MyPanel.replaceRightPanel(new ProfilePanel(bm))));
         this.add(createActionLabel(iconResizeHandlers[3].getImageIcon(),"TimeTable", 70, () -> MyPanel.replaceRightPanel(new TimeTablePanel(bm))));

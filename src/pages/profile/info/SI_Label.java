@@ -12,7 +12,7 @@ public class SI_Label extends JPanel {
     public SI_Label(SalaryHistory salary){
 
         JPanel leftPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
-        leftPanel.setMaximumSize(new Dimension(700,50));
+        leftPanel.setMaximumSize(new Dimension(830,50));
         leftPanel.setBackground(new Color(47,47,47));
 
         JLabel amountLabel = new JLabel(salary.getIncrementAmount());
@@ -24,7 +24,7 @@ public class SI_Label extends JPanel {
         leftPanel.add(dateLabel);
 
         JPanel rightPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-        rightPanel.setMaximumSize(new Dimension(700,50));
+        rightPanel.setMaximumSize(new Dimension(830,50));
         rightPanel.setBackground(new Color(47,47,47));
 
         JLabel descriptionLabel = new JLabel(salary.getDescription());
@@ -35,9 +35,9 @@ public class SI_Label extends JPanel {
         this.add(leftPanel);
         this.add(rightPanel);
 
-        this.setMaximumSize(new Dimension(700,50));
+        this.setMaximumSize(new Dimension(830,50));
         this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
-        this.setBorder(new RoundedBorder(new Color(47,47,47),5,20));
+        this.setBorder(new RoundedBorder(new Color(47,47,47),2,20));
         this.setBackground(Color.black);
         this.setOpaque(true);
 

@@ -2,7 +2,7 @@
 10002,jane.smith@example.com,securePass2!,0,2019-05-10,NULL,9500,Financial Analyst,Finance,Department Manager
 10003,michael.johnson@example.com,securePass3!,0,2021-07-25,NULL,10000,Software Developer,IT,Employee
 10004,emily.davis@example.com,securePass4!,0,2018-11-20,2023-06-15,9800,HR Coordinator,Human Resources,Department Manager
-10005,robert.brown@example.com,securePass5!,0,2017-03-05,NULL,8500,Sales Representative,Sales,Employee
+10005,robert.brown@example.com,SecurePass5!,0,2017-03-05,NULL,8500,Sales Representative,Sales,Employee
 10006,alice.johnson@example.com,securePass6!,0,2022-02-10,NULL,7500,Marketing Assistant,Marketing,Employee
 10007,bob.williams@example.com,securePass7!,0,2020-09-01,NULL,7800,Finance Associate,Finance,Employee
 10008,charlie.martin@example.com,securePass8!,0,2019-12-15,NULL,10000,System Administrator,IT,System Administrator
@@ -18,5 +18,4 @@
 10018,maria.young@example.com,securePass18!,0,2018-12-05,NULL,9000,IT Analyst,IT,Employee
 10019,nathan.king@example.com,securePass19!,0,2022-07-15,NULL,8800,HR Specialist,Human Resources,Human Resource Officer
 10020,olivia.jones@example.com,securePass20!,0,2019-06-10,2023-10-01,9500,Sales Manager,Sales,Employee
-10022,123@gmail.com,1234,, , , , ,Finance,null
-10023,furina@gmail.com,liewjunxuan823,, , , , ,Human Resources,null
+10021,furina@gmail.com,asdasd,null,null,null,5000,null,Marketing,Employee

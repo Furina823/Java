@@ -179,13 +179,43 @@ public class RegisterContent extends JPanel {
 
     private void onAdd(String department){
 
+        String empID = "";
         String newemail = emailText.getText();
         String newpassword = new String(passwordText.getPassword());
 
-        String[] array = {newemail,newpassword,", , , , ",department+", "};
-
+        // Employee
+        String[] array = {newemail,newpassword,"null","null","null","null","null",department,"null"};
         TextFileModifier tfm = new TextFileModifier("employee");
         tfm.createRecord(array);
+
+        Emp emp = new Emp();
+        for(Emp e : emp.getEmpRecords()){
+            if(e.getEmpEmail().equals(newemail)){
+                empID = e.getEmpID();
+            }else {
+                empID = null;
+            }
+        }
+
+        // Personal Information
+        String[] info = {empID, "null" ,"null", "null", "null", "null", "null", "null", "null", "null", "null", "null", newemail, "null"};
+        tfm = new TextFileModifier("personal_information");
+        tfm.manualCreateRecord(info);
+
+
+        String[] nok = {empID,"null","null","null"};
+        tfm = new TextFileModifier("next_of_kin");
+        tfm.createRecord(nok);
+
+        String[] background = {empID,"null","null","null","null","null","null"};
+        tfm = new TextFileModifier("background");
+        tfm.manualCreateRecord(background);
+
+        String[] leave = {empID,"null","null","null","null","null","null"};
+        tfm = new TextFileModifier("leave");
+        tfm.createRecord(leave);
+
+        // Payslip not settled yet
 
     }
 

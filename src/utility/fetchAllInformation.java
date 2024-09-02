@@ -178,7 +178,6 @@ public class fetchAllInformation {
                 leaveRequest.setLeaveRequestDate(array[4]);
                 leaveRequest.setLeaveStartDate(array[5]);
                 leaveRequest.setLeaveEndDate(array[6]);
-                leaveRequest.setApprovalManager(array[7]);
                 leaveRequests.add(leaveRequest);
             }
         }

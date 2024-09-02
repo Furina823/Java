@@ -4,7 +4,7 @@ import datamodel.Leave;
 import datamodel.LeaveRequest;
 import datamodel.WorkSchedule;
 import rolemodel.BaseModel;
-import utility.TextFileModifier;
+import utility.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,19 +32,30 @@ public class RegistrationBody extends JPanel {
         JPanel containerPanel = new JPanel();
 
         containerPanel.setLayout(new BorderLayout());
+        containerPanel.setBackground(new Color(47,47,47));
+        containerPanel.setOpaque(true);
 
         JLabel title = new JLabel("Leave Registration");
+        title.setBackground(new Color(47,47,47));
+        title.setFont(FontUtils.getPoppinsFontUnderlinedWithColor(14f,Color.white));
 
         JPanel contentPanel = new JPanel();
         contentPanel.setLayout(new GridLayout(3,3));
 
         containerPanel.add(title, BorderLayout.NORTH);
-        containerPanel.add(contentPanel, BorderLayout.SOUTH);
+        containerPanel.add(contentPanel, BorderLayout.CENTER);
+        contentPanel.setPreferredSize(new Dimension(840,120));
+
+        containerPanel.setBackground(new Color(47,47,47));
+        this.setBackground(Color.black);
+
+        JPanel rightPanel = new JPanel();
+        rightPanel.setPreferredSize(new Dimension(0,100));
 
         // First Row First Column
         JPanel namePanel = new JPanel();
-        JLabel nameLabel = new JLabel("Name:");
-        JLabel nameDescription = new JLabel(name);
+        JLabel nameLabel = new JLabel("Name:          ");
+        JLabel nameDescription = new JLabel(name+"      ");
 
         namePanel.add(nameLabel);
         namePanel.add(nameDescription);
@@ -64,6 +75,8 @@ public class RegistrationBody extends JPanel {
         JPanel dayStartPanel = new JPanel();
         JLabel dayStartLabel = new JLabel("Day Start:");
         dayStartField = new JTextField(10);
+        dayStartField.setBackground(Color.black);
+        dayStartField.setCaretColor(Color.white);
 
         dayStartPanel.add(dayStartLabel);
         dayStartPanel.add(dayStartField);
@@ -81,14 +94,20 @@ public class RegistrationBody extends JPanel {
 
         // Third Row First Column
         JPanel dayEndPanel = new JPanel();
-        JLabel dayEndLabel = new JLabel("Day End:");
+        JLabel dayEndLabel = new JLabel("Day End:  ");
         dayEndField = new JTextField(10);
+        dayEndField.setBackground(Color.black);
+        dayEndField.setCaretColor(Color.white);
 
         // Third Row Second Column
         JPanel EmptyPanel3 = new JPanel();
 
         // Third Row third column
-        JButton addbutton = new JButton("Add");
+        RoundedButton addbutton = new RoundedButton("Add",Color.black);
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(addbutton);
+
         addbutton.addActionListener((e)->{
             ValidateLeave((String)leaveTypeComboBox.getSelectedItem(),dayStartField.getText(),dayEndField.getText(),bm);
         });
@@ -106,7 +125,25 @@ public class RegistrationBody extends JPanel {
 
         contentPanel.add(dayEndPanel);
         contentPanel.add(EmptyPanel3);
-        contentPanel.add(addbutton);
+        contentPanel.add(buttonPanel);
+
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+
+        for(Component c : contentPanel.getComponents()){
+            c.setBackground(new Color(47,47,47));
+            if(c instanceof JPanel){
+                for(Component cc : ((JPanel) c).getComponents()){
+                    cc.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
+                }
+            }
+        }
+
+        addbutton.setBackground(Color.black);
+        addbutton.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
+        addbutton.setPreferredSize(new Dimension(100,25));
+
+        leaveTypeComboBox.setBackground(Color.black);
+        leaveTypeComboBox.setUI(new CustomComboBoxUI());
 
         this.add(containerPanel);
 
@@ -205,7 +242,6 @@ public class RegistrationBody extends JPanel {
                 request.setLeaveRequestDate(currentDate.toString());
                 request.setLeaveStartDate(initialDate.toString());
                 request.setLeaveEndDate(endDate.toString());
-                request.setApprovalManager("0");
 
                 sentLeaveRequest(request);
 

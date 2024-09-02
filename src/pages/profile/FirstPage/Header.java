@@ -17,7 +17,7 @@ public class Header extends JPanel{
         headerLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
         setHeaderLabel("Profile:");
         this.add(headerLabel);
-        this.setPreferredSize(new Dimension(700,50));
+        this.setPreferredSize(new Dimension(830,50));
         this.setLayout(new FlowLayout(FlowLayout.LEADING));
         this.setBackground(Color.black);
 

@@ -111,11 +111,11 @@ public class Leave {
         return records;
     }
 
-    public ArrayList<Leave> getRecordByID(String id) {
+    public static ArrayList<Leave> getRecordByID(String id) {
         ArrayList<Leave> records = new ArrayList<>();
         TextFileModifier tfm = new TextFileModifier("leave");
         for (String[] s : tfm.toArrayListofStringArray()) {
-            if (s[0].equals(id)) {
+            if (s[1].equals(id)) {
                 Leave leave = new Leave(s[0],s[1], s[2], s[3], s[4], s[5], s[6]);
                 records.add(leave);
             }

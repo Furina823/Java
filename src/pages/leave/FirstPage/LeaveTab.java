@@ -4,10 +4,7 @@ import datamodel.Leave;
 import datamodel.LeaveRequest;
 import pages.MyPanel;
 import rolemodel.BaseModel;
-import utility.FontUtils;
-import utility.RoundedBorder;
-import utility.TextFileModifier;
-import utility.fetchAllInformation;
+import utility.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +14,7 @@ public class LeaveTab extends JPanel {
     private JPanel leftPanel;
     private JPanel rightPanel;
     private JButton resultButton;
-    private JButton cancelButton;
+    private RoundedButton cancelButton;
     private LeavePanel panel;
     private BaseModel model;
 
@@ -50,11 +47,12 @@ public class LeaveTab extends JPanel {
         rightPanel.setBackground(new Color(47,47,47));
 
         resultButton = new JButton(lr.getStatus());
-        resultButton.setBorder(new RoundedBorder(Color.white, 2,10));
+        RemoveButtonBackground.makeTransparent(resultButton,new Color(47,47,47));
         resultButton.setFont(FontUtils.getPoppinsFontWithColor(15f,Color.white));
+        resultButton.setEnabled(false);
 
-        cancelButton = new JButton("Cancel");
-        cancelButton.setFont(FontUtils.getPoppinsFontWithColor(15f,Color.white));
+        cancelButton = new RoundedButton("Cancel",Color.white);
+        cancelButton.setFont(FontUtils.getPoppinsFontWithColor(15f,Color.black));
 
         initializeCancelButton(lr.getStatus(),lr,model);
 
@@ -62,7 +60,7 @@ public class LeaveTab extends JPanel {
         rightPanel.add(cancelButton);
 
         this.setBorder(new RoundedBorder(Color.black, 2,20));
-        this.setPreferredSize(new Dimension(700,50));
+        this.setPreferredSize(new Dimension(850,50));
         this.setLayout(new BorderLayout());
         this.add(leftPanel, BorderLayout.WEST);
         this.add(rightPanel, BorderLayout.EAST);

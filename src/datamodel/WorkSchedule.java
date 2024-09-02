@@ -33,7 +33,7 @@ public class WorkSchedule {
     public String getStandardizedEndWorkTime() { return standardizedEndWorkTime; }
     public void setStandardizedEndWorkTime(String standardizedEndWorkTime) { this.standardizedEndWorkTime = standardizedEndWorkTime; }
 
-    public ArrayList<WorkSchedule> getRecords() {
+    public static ArrayList<WorkSchedule> getRecords() {
         ArrayList<WorkSchedule> records = new ArrayList<>();
         TextFileModifier tfm = new TextFileModifier("work_schedule");
         for (String[] s : tfm.toArrayListofStringArray()) {

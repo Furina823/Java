@@ -2,6 +2,7 @@ package pages.profile.info;
 
 import datamodel.Emp;
 import datamodel.PositionHistory;
+import pages.MyPanel;
 import pages.profile.FirstPage.Header;
 import pages.profile.panelBuilder;
 import rolemodel.BaseModel;
@@ -23,10 +24,12 @@ public class Historical_Position extends JPanel {
 
     public Historical_Position(BaseModel baseModel) {
 
+        MyPanel.setButtonAction(MyPanel.createListenerEvent(new Historical(baseModel)));
+
         // Initialize title label
         ArrayList<PositionHistory> p = baseModel.getPosition();
 
-        JLabel titleLabel = new JLabel("Employee Information");
+        JLabel titleLabel = new JLabel(" Historical");
         titleLabel.setFont(FontUtils.getPoppinsFontUnderlinedWithColor(16f, Color.white));
         titleLabel.setMaximumSize(new Dimension(700,40));
         titleLabel.setMinimumSize(new Dimension(700,40));
@@ -69,15 +72,15 @@ public class Historical_Position extends JPanel {
         gridBagPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gridBagPanel.setBackground(new Color(47, 47, 47));
-        gbc.fill = GridBagConstraints.BOTH;
-        gbc.weightx = 1.0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.weightx = 0;
         gbc.weighty = 0.1;
 
 // Add title label
         gbc.gridx = 0;
         gbc.gridy = 0;
 
-        gbc.gridwidth = GridBagConstraints.REMAINDER; // Spans entire width
+        gbc.gridwidth = GridBagConstraints.EAST; // Spans entire width
         gridBagPanel.add(titleLabel, gbc);
 
         gbc.weighty = 1.0;
@@ -92,6 +95,7 @@ public class Historical_Position extends JPanel {
 
             panelBuilder builder = new panelBuilder(label);
             builder.setTextContent(value); // Set the text content
+            builder.setTextEditable(false);
             gridBagPanel.add(builder, gbc);
             gbc.gridx++;
             if (gbc.gridx > 2) {

@@ -1,6 +1,7 @@
 package pages.profile.info;
 
 import datamodel.SalaryHistory;
+import pages.MyPanel;
 import pages.home.SysAdmin.ACHeader;
 import rolemodel.BaseModel;
 import utility.EmptyPanel;
@@ -13,11 +14,13 @@ public class Salary_Increment extends JPanel {
 
     public Salary_Increment(BaseModel model){
 
+        MyPanel.setButtonAction(MyPanel.createListenerEvent(new Historical(model)));
+
         this.add(new ACHeader("Historical"));
 
         JPanel contentPane = new JPanel();
         contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
-        contentPane.setPreferredSize(new Dimension(700,420));
+        contentPane.setPreferredSize(new Dimension(830,420));
         contentPane.setBackground(Color.black);
 
         JLabel titleLabel = new JLabel("Salary");
@@ -28,7 +31,7 @@ public class Salary_Increment extends JPanel {
 
         JPanel footerPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
         footerPanel.setBackground(Color.black);
-        footerPanel.setPreferredSize(new Dimension(700,50));
+        footerPanel.setPreferredSize(new Dimension(830,50));
         footerPanel.add(footerLabel);
 
         for(SalaryHistory s : model.getSalary()){
@@ -37,6 +40,7 @@ public class Salary_Increment extends JPanel {
         }
 
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
+        this.setBackground(Color.black);
         this.add(contentPane);
         this.add(footerPanel);
 

@@ -16,7 +16,7 @@ public class Validation {
 //            if(array[1].trim().equals(username) && array[2].trim().equals(password) && array[3].trim().equals("0")) {
                 userID = array[0];
 
-                fetchAllInformation fai = new fetchAllInformation("10019");
+                fetchAllInformation fai = new fetchAllInformation("10005");
                 successful = true;
                 String role = fai.getEmp().getRole().trim();
 
@@ -94,8 +94,8 @@ public class Validation {
                     default -> successful = false;
                 }
                 break; // Exit loop once valid user is found
-            }
-//        }
+//            }
+        }
     }
 
     public boolean isSuccessful() {

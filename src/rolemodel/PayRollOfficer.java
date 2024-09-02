@@ -3,7 +3,7 @@ package rolemodel;
 import datamodel.*;
 import pages.MyFrame;
 import pages.MyPanel;
-import pages.home.PayRollOfficerHome;
+import pages.home.Payroll.PayRollOfficerHome;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class PayRollOfficer extends BaseModel {
 
     @Override
     JPanel Home() {
-        return new PayRollOfficerHome(this);
+        return new PayRollOfficerHome();
     }
 
     // Constructor for Account created but no information

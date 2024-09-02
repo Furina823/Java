@@ -58,7 +58,7 @@ public class PositionHistory {
         return null;
     }
 
-    public ArrayList<PositionHistory> getRecordsByEmpId(String empId) {
+    public static ArrayList<PositionHistory> getRecordsByEmpId(String empId) {
         ArrayList<PositionHistory> records = new ArrayList<>();
         TextFileModifier tfm = new TextFileModifier("position");
         for (String[] s : tfm.toArrayListofStringArray()) {

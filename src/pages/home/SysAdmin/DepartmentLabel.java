@@ -32,9 +32,7 @@ public class DepartmentLabel extends JLabel implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == this){
-
             MyPanel.replaceRightPanel(new AC(department));
-
         }
     }
 
@@ -60,6 +58,10 @@ public class DepartmentLabel extends JLabel implements MouseListener{
 
     public String getText(){
         return this.text;
+    }
+
+    public String getDepartment(){
+        return this.department;
     }
 
 }

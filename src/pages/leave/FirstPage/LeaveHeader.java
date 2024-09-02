@@ -18,7 +18,7 @@ public class LeaveHeader extends JPanel {
         headerPanel.add(title);
         headerPanel.setOpaque(false);
 
-        this.setPreferredSize(new Dimension(700,50));
+        this.setPreferredSize(new Dimension(830,50));
         this.setOpaque(true);
         this.setBackground(Color.black);
         this.add(headerPanel);

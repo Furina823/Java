@@ -2,6 +2,7 @@ package datamodel;
 
 import utility.TextFileModifier;
 import java.util.ArrayList;
+import java.util.List;
 
 public class EmpNOK {
 
@@ -38,7 +39,7 @@ public class EmpNOK {
     public String getContactNumber() { return contactNumber; }
     public void setContactNumber(String contactNumber) { this.contactNumber = contactNumber; }
 
-    public ArrayList<EmpNOK> getRecords() {
+    public static ArrayList<EmpNOK> getRecords() {
         ArrayList<EmpNOK> records = new ArrayList<>();
         TextFileModifier tfm = new TextFileModifier("next_of_kin");
         for (String[] s : tfm.toArrayListofStringArray()) {
@@ -56,5 +57,14 @@ public class EmpNOK {
             }
         }
         return null;
+    }
+
+    public static List<EmpNOK> getRecordByEmpID(String empID){
+        List<EmpNOK> records = new ArrayList<>();
+        for(EmpNOK e : getRecords()){
+            if(e.getEmpID().equals(empID)){
+            records.add(e);}
+        }
+        return records;
     }
 }

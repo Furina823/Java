@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 public class Emp {
 
+    public String getEmpID() {
+        return empID;
+    }
+
     private String empID;
     private String empEmail;
     private String empPassword;
@@ -35,7 +39,6 @@ public class Emp {
     }
 
     // Getters and setters in a single line
-    public String getEmpID() { return empID; }
     public void setEmpID(String empID) { this.empID = empID; }
 
     public String getEmpEmail() { return empEmail; }

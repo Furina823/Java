@@ -72,7 +72,7 @@ public class LoginPanel extends JPanel implements ActionListener {
         passwordTextField.setBackground(Color.black);
         passwordTextField.setEchoChar('*');
 
-        LoginButton = new RoundedButton("Login >",10);
+        LoginButton = new RoundedButton("Login >",new Color(190,190,190));
         LoginButton.addActionListener(this);
         LoginButton.setBackground(Color.gray);
         LoginButton.setForeground(Color.white);

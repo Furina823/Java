@@ -3,7 +3,7 @@ package rolemodel;
 import datamodel.*;
 import pages.MyFrame;
 import pages.MyPanel;
-import pages.home.DepHome;
+import pages.home.DepManager.DepHome;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -55,8 +55,9 @@ public class DepManager extends BaseModel {
         frame.replacePanel(new MyPanel(Home(), this));
     }
 
-    public void replacePanel(JPanel panel) {
-        this.frame.replacePanel(panel);
+    @Override
+    public void reset() {
+        frame.replacePanel(new MyPanel(Home(),this));
     }
 
 }

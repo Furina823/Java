@@ -43,10 +43,11 @@ public class AddRecord extends JPanel implements MouseListener{
         AddRecordPanel.add(AddRecordLabel);
         AddRecordPanel.setOpaque(false);
         AddRecordPanel.addMouseListener(this);
-        AddRecordPanel.setPreferredSize(new Dimension(700, 50));
+        AddRecordPanel.setPreferredSize(new Dimension(840, 50));
         AddRecordPanel.setBorder(new RoundedBorder(Color.white, 2, 30));
 
         this.add(AddRecordPanel);
+        this.setBackground(Color.black);
         AddRecordPanel.setBackground(Color.black);
 
     }
