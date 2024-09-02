@@ -7,6 +7,8 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
+import pages.MyPanel;
+import pages.home.HROfficer.ProfileCategories;
 import pages.profile.FirstPage.Header;
 import pages.profile.panelBuilder;
 import rolemodel.BaseModel;
@@ -18,6 +20,8 @@ public class Background extends JPanel {
     private JPanel gridBagPanel;
 
     public Background(String empID){
+
+        MyPanel.setButtonAction(MyPanel.createListenerEvent(new ProfileCategories(empID)));
 
         EmpBackground ebg = new EmpBackground();
         EmpBackground background = ebg.getRecordByID(empID);
@@ -85,13 +89,15 @@ public class Background extends JPanel {
         contentPanel.add(gridBagPanel);
         contentPanel.setBackground(new Color(47, 47, 47));
 
-        JButton saveButton = new JButton("Save");
+        RoundedButton saveButton = new RoundedButton("Save",Color.white);
+        saveButton.setFont(FontUtils.getPoppinsFontWithColor(14f, Color.black));
         saveButton.addActionListener(
                 (_) -> onSave(empID)
         );
 
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-        bottomPanel.setPreferredSize(new Dimension(0,100));
+        bottomPanel.setPreferredSize(new Dimension(0,150));
+        bottomPanel.setBackground(new Color(47, 47, 47));
         bottomPanel.add(saveButton);
 
         this.setLayout(new BorderLayout()); // Set layout to BorderLayout
@@ -155,6 +161,7 @@ public class Background extends JPanel {
 
         TextFileModifier tfm = new TextFileModifier("background");
         tfm.updateRecord(empID,content);
+        DisplayJoption.showMessage("Employee Background had updated");
 
     }
 

@@ -1,4 +1,4 @@
-package test;
+package calendar;
 import rolemodel.BaseModel;
 import datamodel.LeaveRequest;
 import datamodel.WorkSchedule;
@@ -17,13 +17,11 @@ public class Cells extends JPanel {
     private DaysHeaderPanel daysHeaderPanel;
     private DateButtonsPanel dateButtonsPanel;
     private LocalDate currentDate;
-    private BaseModel baseModel;
     private ArrayList<LeaveRequest> leaveRequests;
     private ArrayList<WorkSchedule> workSchedules;
     private ArrayList<Attendance> attendances;
 
     public Cells(BaseModel baseModel,RightCalendarGUI rightCalendarGUI) {
-        this.baseModel = baseModel;
         this.leaveRequests = baseModel.getLeaveRequest();
         this.attendances = baseModel.getEmpAttendance();
 
@@ -65,7 +63,7 @@ public class Cells extends JPanel {
         calendarHeader.setMonthYear(monthYear);
 
         LocalDate firstOfMonth = yearMonth.atDay(1);
-        int startDay = (firstOfMonth.getDayOfWeek().getValue() + 6) % 7; // Monday = 0, Sunday = 6
+        int startDay = (firstOfMonth.getDayOfWeek().getValue() + 6) % 7;
         int daysInMonth = yearMonth.lengthOfMonth();
 
         YearMonth prevMonth = yearMonth.minusMonths(1);
@@ -100,19 +98,12 @@ public class Cells extends JPanel {
                 Color borderColor = getDateColor(date);
                 dateButtonsPanel.colorUnderlineBorder(i, borderColor);
             } else {
-                dateButtonsPanel.colorUnderlineBorder(i,Color.gray);
+                dateButtonsPanel.colorUnderlineBorder(i,new Color(47,47,47));
             }
         }
     }
 
     private Color getDateColor(LocalDate date) {
-        if (isLeaveOnDate(date)) {
-            return Color.RED; // Leave
-        }
-
-        if (isAttendanceOnDate(date)) {
-            return Color.GREEN;
-        }
 
         for (WorkSchedule workSchedule : workSchedules) {
             String workScheduleDateStr = workSchedule.getDate();
@@ -121,9 +112,31 @@ public class Cells extends JPanel {
                     LocalDate scheduleDate = LocalDate.parse(workScheduleDateStr);
                     if (scheduleDate.equals(date)) {
                         if (workSchedule.getIsHoliday().equals("1")) {
-                            return Color.MAGENTA;
+                            return Color.MAGENTA; // Holiday
                         }
-                        return Color.YELLOW;
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error parsing work schedule date: " + workScheduleDateStr);
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        if (isLeaveOnDate(date)) {
+            return Color.RED; // Leave
+        }
+
+        if (isAttendanceOnDate(date)) {
+            return Color.GREEN; // Attendance
+        }
+
+        for (WorkSchedule workSchedule : workSchedules) {
+            String workScheduleDateStr = workSchedule.getDate();
+            if (workScheduleDateStr != null && !workScheduleDateStr.isEmpty()) {
+                try {
+                    LocalDate scheduleDate = LocalDate.parse(workScheduleDateStr);
+                    if (scheduleDate.equals(date)) {
+                        return Color.YELLOW; // Work Day
                     }
                 } catch (Exception e) {
                     System.err.println("Error parsing work schedule date: " + workScheduleDateStr);
@@ -144,9 +157,12 @@ public class Cells extends JPanel {
                 try {
                     LocalDate startDate = LocalDate.parse(leaveStartDateStr);
                     LocalDate endDate = LocalDate.parse(leaveEndDateStr);
+
                     if (!date.isBefore(startDate) && !date.isAfter(endDate) && leaveRequest.getStatus().equals("Approved")) {
                         return true;
                     }
+
+
                 } catch (Exception e) {
                     System.err.println("Error parsing leave request dates: " + leaveStartDateStr + ", " + leaveEndDateStr);
                     e.printStackTrace();

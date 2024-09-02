@@ -3,11 +3,13 @@ package pages.profile.info;
 import datamodel.Emp;
 import datamodel.PositionHistory;
 import pages.MyPanel;
+import pages.home.HROfficer.ProfileCategories;
 import pages.profile.FirstPage.Header;
 import pages.profile.panelBuilder;
 import rolemodel.BaseModel;
 import utility.DisplayJoption;
 import utility.FontUtils;
+import utility.RoundedButton;
 import utility.TextFileModifier;
 
 import javax.swing.*;
@@ -24,11 +26,12 @@ public class Pos_Sal extends JPanel {
 
     private JPanel gridBagPanel;
     private JPanel bottomPanel;
-    private JButton editButton;
+    private RoundedButton editButton;
 
     public Pos_Sal(String empID) {
         this(Emp.getRecord(empID));
         initializeButton(empID);
+        MyPanel.setButtonAction(MyPanel.createListenerEvent(new ProfileCategories(empID)));
     }
 
     public Pos_Sal(BaseModel baseModel) {
@@ -96,9 +99,13 @@ public class Pos_Sal extends JPanel {
     private void initializeButton(String empID) {
         // Create and set up the bottom panel
         bottomPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-        editButton = new JButton("Edit");
-        JButton saveButton = new JButton("Save");
-        JButton cancelButton = new JButton("Cancel");
+        bottomPanel.setBackground(new Color(47,47,47));
+        editButton = new RoundedButton("Edit",Color.white);
+        editButton.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.black));
+        RoundedButton saveButton = new RoundedButton("Save",Color.white);
+        saveButton.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.black));
+        RoundedButton cancelButton = new RoundedButton("Cancel",Color.black);
+        cancelButton.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
 
         saveButton.addActionListener(_ -> onSave(empID));
         cancelButton.addActionListener(_ -> onCancel(empID));
@@ -116,7 +123,7 @@ public class Pos_Sal extends JPanel {
         });
 
         bottomPanel.add(editButton);
-        bottomPanel.setPreferredSize(new Dimension(0,100));
+        bottomPanel.setPreferredSize(new Dimension(0,150));
         this.add(bottomPanel, BorderLayout.SOUTH);
     }
 
@@ -136,15 +143,11 @@ public class Pos_Sal extends JPanel {
 
         for (PositionHistory h : records) {
             LocalDate date2 = LocalDate.parse(h.getDate()); // Assuming getDate() returns a valid date string
-            System.out.println(h.getDate());
+
             if (date2.isAfter(latestDate)) {
                 latestDate = date2;
             }
         }
-
-        System.out.println(latestDate);
-        System.out.println(currentDate);
-
 
         String formattedCurrentDate = currentDate.format(formatter);
 
@@ -179,6 +182,7 @@ public class Pos_Sal extends JPanel {
             emp.getIsBan(),emp.getDateJoin(),emp.getDateLeave(),salary,textfield,
             emp.getDepartment(),emp.getRole()};
             tfm.updateRecord(empID,content2);
+            DisplayJoption.showMessage("Employee Position/Salary had updated");
         }
 
         initializeButton(empID); // Reset buttons

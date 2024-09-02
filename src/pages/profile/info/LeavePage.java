@@ -2,10 +2,13 @@ package pages.profile.info;
 
 import datamodel.Leave;
 import pages.MyPanel;
+import pages.home.HROfficer.ProfileCategories;
 import pages.profile.FirstPage.Header;
 import pages.profile.panelBuilder;
 import rolemodel.BaseModel;
+import utility.DisplayJoption;
 import utility.FontUtils;
+import utility.RoundedButton;
 import utility.TextFileModifier;
 
 import javax.swing.*;
@@ -22,6 +25,8 @@ public class LeavePage extends JPanel {
     private JPanel buttonPanel;
 
     public LeavePage(String empID){
+
+        MyPanel.setButtonAction(MyPanel.createListenerEvent(new ProfileCategories(empID)));
 
         // Initialize title label
         ArrayList<Leave> leave = Leave.getRecordByID(empID);
@@ -89,7 +94,8 @@ public class LeavePage extends JPanel {
         leftPanel.setBackground(new Color(47,47,47));
 
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-        buttonPanel.setPreferredSize(new Dimension(0,110));
+        buttonPanel.setPreferredSize(new Dimension(0,150));
+        buttonPanel.setBackground(new Color(47,47,47));
         buttonPanel.add(editButton());
 
         JPanel rightPanel = new JPanel();
@@ -110,23 +116,26 @@ public class LeavePage extends JPanel {
 
     }
 
-    private JButton saveButton(){
+    private RoundedButton saveButton(){
 
-        JButton saveButton = new JButton("Save");
+        RoundedButton saveButton = new RoundedButton("Save",Color.white);
+        saveButton.setFont(FontUtils.getPoppinsFontWithColor(14f, Color.black));
         saveButton.addActionListener(_->{onSave();});
         return saveButton;
     }
 
-    private JButton cancelButton(){
-        JButton cancelButton = new JButton("Cancel");
+    private RoundedButton cancelButton(){
+        RoundedButton cancelButton = new RoundedButton("Cancel",Color.black);
+        cancelButton.setFont(FontUtils.getPoppinsFontWithColor(14f, Color.white));
         cancelButton.addActionListener(_->{
             MyPanel.replaceRightPanel(new LeavePage(le.getEmpID()));
         });
         return cancelButton;
     }
 
-    private JButton editButton(){
-        JButton editButton = new JButton("Edit");
+    private RoundedButton editButton(){
+        RoundedButton editButton = new RoundedButton("Edit",Color.white);
+        editButton.setFont(FontUtils.getPoppinsFontWithColor(14f, Color.black));
         editButton.addActionListener(e -> onEdit(editButton));
         return editButton;
     }
@@ -155,9 +164,11 @@ public class LeavePage extends JPanel {
         tfm.updateRecord(le.getLeaveID(),array);
 
         MyPanel.replaceRightPanel(new LeavePage(le.getEmpID()));
+        DisplayJoption.showMessage("Employee Leave had configured");
+
     }
 
-    private void onEdit(JButton button){
+    private void onEdit(RoundedButton button){
 
         for(Component component : gridBagPanel.getComponents()){
             if(component instanceof panelBuilder){

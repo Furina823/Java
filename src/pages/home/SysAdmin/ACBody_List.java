@@ -9,12 +9,11 @@ import utility.TextFileModifier;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ACBody_List extends JPanel {
 
-    private JButton actionButton;
+    private RoundedButton actionButton;
     private Emp emp;
     private TextFileModifier tfm;
     private RoundedButton viewButton;
@@ -85,10 +84,12 @@ public class ACBody_List extends JPanel {
 
         actionListener = e -> MyPanel.replaceRightPanel(new Register(emp.getDepartment(),emp));
 
-        viewButton = new RoundedButton("View",Color.white);
+        viewButton = new RoundedButton("View",Color.black);
+        viewButton.setFont(FontUtils.getPoppinsFontWithColor(14f, Color.white));
         viewButton.addActionListener(actionListener);
 
-        actionButton = new JButton();
+        actionButton = new RoundedButton("",Color.white);
+        actionButton.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.black));
         updateButton(); // Set initial button text and functionality
 
         rightPanel.add(viewButton);
@@ -136,7 +137,7 @@ public class ACBody_List extends JPanel {
         tfm.updateRecord(emp.getEmpID(), newContent);
         emp.setIsBan("0"); // Update local record if necessary
         updateButton(); // Refresh the button state
-        System.out.println("Account unlocked");
+
     }
 
     private void lockAccount() {
@@ -150,6 +151,6 @@ public class ACBody_List extends JPanel {
         tfm.updateRecord(emp.getEmpID(), newContent);
         emp.setIsBan("1"); // Update local record if necessary
         updateButton(); // Refresh the button state
-        System.out.println("Account locked");
+
     }
 }

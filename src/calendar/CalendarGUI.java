@@ -1,25 +1,29 @@
-package test;
+package calendar;
 
 import rolemodel.BaseModel;
+import utility.FontUtils;
 
 import javax.swing.*;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
 
 public class CalendarGUI extends JPanel {
 
     JPanel leftPanel;
     JPanel rightPanel;
-    JLabel leftLabel;
     JPanel gridPanel;
     JLabel titleLabel;
     JPanel leftBackgroundPanel;
     JPanel bottomBackgroundPanel;
     JPanel rightBackgroundPanel;
-    RightCalendarGUI rightCalendarGUI = new RightCalendarGUI();
+    RightCalendarGUI rightCalendarGUI;
 
     public CalendarGUI(BaseModel bm) {
 
-        titleLabel = new JLabel("                         Time Table:");
+        rightCalendarGUI = new RightCalendarGUI(bm);
+
+        titleLabel = new JLabel("          Time Table:");
+        titleLabel.setFont(FontUtils.getPoppinsFontWithColor(20f,Color.white));
 
         titleLabel.setForeground(Color.white);
         titleLabel.setBackground(Color.black);
@@ -30,11 +34,6 @@ public class CalendarGUI extends JPanel {
         leftBackgroundPanel.setPreferredSize(new Dimension(50,0));
         leftBackgroundPanel.setBackground(Color.black);
         leftBackgroundPanel.setOpaque(true);
-
-        bottomBackgroundPanel = new JPanel();
-        bottomBackgroundPanel.setPreferredSize(new Dimension(0,50));
-        bottomBackgroundPanel.setBackground(Color.black);
-        bottomBackgroundPanel.setOpaque(true);
 
         rightBackgroundPanel = new JPanel();
         rightBackgroundPanel.setPreferredSize(new Dimension(50,0));
@@ -47,11 +46,12 @@ public class CalendarGUI extends JPanel {
         leftPanel.add(new Cells(bm, rightCalendarGUI));
         leftPanel.add(new Legends());
 
-        leftPanel.setBackground(Color.gray);
+        leftPanel.setBackground(new Color(47,47,47));
+        leftPanel.setBorder(new MatteBorder(0, 0, 0, 1, Color.WHITE));
         leftPanel.setOpaque(true);
 
         rightPanel = new JPanel();
-        rightPanel.setBackground(Color.lightGray);
+        rightPanel.setBackground(new Color(47,47,47));
         rightPanel.setOpaque(true);
         rightPanel.add(rightCalendarGUI);
         rightPanel.setLayout(new FlowLayout());
@@ -65,7 +65,6 @@ public class CalendarGUI extends JPanel {
         this.setLayout(new BorderLayout());
         this.add(leftBackgroundPanel, BorderLayout.WEST);
         this.add(rightBackgroundPanel, BorderLayout.EAST);
-        this.add(bottomBackgroundPanel, BorderLayout.SOUTH);
         this.add(titleLabel, BorderLayout.NORTH);
         this.add(gridPanel, BorderLayout.CENTER);
 

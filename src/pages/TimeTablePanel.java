@@ -1,7 +1,7 @@
 package pages;
 
 import rolemodel.BaseModel;
-import test.CalendarGUI;
+import calendar.CalendarGUI;
 
 import javax.swing.*;
 import java.awt.*;

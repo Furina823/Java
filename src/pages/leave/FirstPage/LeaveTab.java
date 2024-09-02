@@ -61,6 +61,7 @@ public class LeaveTab extends JPanel {
 
         this.setBorder(new RoundedBorder(Color.black, 2,20));
         this.setPreferredSize(new Dimension(850,50));
+        this.setMaximumSize(new Dimension(850,50));
         this.setLayout(new BorderLayout());
         this.add(leftPanel, BorderLayout.WEST);
         this.add(rightPanel, BorderLayout.EAST);

@@ -16,7 +16,7 @@ public class SysAdministrator extends BaseModel{
 
     @Override
     JPanel Home() {
-        return new SysAdministratorHome(this);
+        return new SysAdministratorHome();
     }
 
     // Constructor for Account created but no information

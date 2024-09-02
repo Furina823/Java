@@ -1,4 +1,4 @@
-package test;
+package calendar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +22,7 @@ public class DaysHeaderPanel extends JPanel {
         button.setFont(new Font("Arial", Font.BOLD, 14)); // Font size and style
         button.setForeground(Color.white);
         button.setOpaque(true);
-        button.setBackground(Color.gray); // Background color for day headers
+        button.setBackground(new Color(47,47,47)); // Background color for day headers
         button.setMargin(new Insets(5, 5, 5, 5));
         button.setFocusable(false);
         button.setContentAreaFilled(true);

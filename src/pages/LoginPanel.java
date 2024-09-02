@@ -1,5 +1,6 @@
 package pages;
 
+import utility.DisplayJoption;
 import utility.RoundedBorder;
 import utility.RoundedButton;
 import utility.Validation;
@@ -131,10 +132,10 @@ public class LoginPanel extends JPanel implements ActionListener {
         Validation validation = new Validation(parentFrame, username, password);
         if (validation.isSuccessful()) {
 
-
         } else {
-            JOptionPane.showMessageDialog(this, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);
+            DisplayJoption.showMessage("Invalid username and password");
         }
+
     }
 
     @Override

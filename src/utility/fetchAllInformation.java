@@ -214,7 +214,7 @@ public class fetchAllInformation {
         positions = new ArrayList<>();
         TextFileModifier tfm = new TextFileModifier("position");
         for (String[] array : tfm.toArrayListofStringArray()) {
-            if (array[1].equals(userID)) {
+            if (array[2].equals(userID)) {
                 PositionHistory position = new PositionHistory();
                 position.setCId(array[0]);
                 position.setDate(array[1]);

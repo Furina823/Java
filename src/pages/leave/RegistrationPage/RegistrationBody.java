@@ -210,9 +210,6 @@ public class RegistrationBody extends JPanel {
             default -> 0;
         };
 
-        if(!leaveType.equals("Maternity")) {
-
-
             // Assume that the leave have to be request earlier & cannot request leave for the same day
             if (initialDate.isEqual(currentDate) || initialDate.isBefore(currentDate)) {
                 JOptionPane.showMessageDialog(null, "Request leave for current or previous date is unable");
@@ -245,7 +242,7 @@ public class RegistrationBody extends JPanel {
 
                 sentLeaveRequest(request);
 
-                bm.setLeaveRequest(new LeaveRequest().getRecordsByEmpId(bm.getEmpCompany().getEmpID()));
+                bm.setLeaveRequest(LeaveRequest.getRecordsByEmpId(bm.getEmpCompany().getEmpID()));
 
                 Container parent = this.getParent();
 
@@ -255,10 +252,6 @@ public class RegistrationBody extends JPanel {
                 JOptionPane.showMessageDialog(null, "The Leave Request had applied");
                 initializeLeaveDate();
             }
-        } else {
-
-        }
-
 
     }
 
@@ -322,7 +315,5 @@ public class RegistrationBody extends JPanel {
             return false;
         }
     }
-
-    // Overlapping is not validated yet
 
 }

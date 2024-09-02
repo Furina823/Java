@@ -57,5 +57,9 @@ public class PayRollOfficer extends BaseModel {
 
     }
 
+    @Override
+    public void reset() {
+        frame.replacePanel(new MyPanel(Home(),this));
+    }
 
 }

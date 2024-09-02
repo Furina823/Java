@@ -4,6 +4,8 @@ import datamodel.*;
 import pages.MyPanel;
 import rolemodel.DepManager;
 import utility.DisplayJoption;
+import utility.FontUtils;
+import utility.RoundedButton;
 import utility.TextFileModifier;
 
 import javax.swing.*;
@@ -16,17 +18,19 @@ import java.util.ArrayList;
 public class DepManagerLabel extends JPanel {
 
     private final LeaveRequest leaveRequest;
-    private final DepManager manager;
+    private DepManager manager;
 
     public DepManagerLabel(LeaveRequest leaveRequest, DepManager manager) {
 
         this.leaveRequest = leaveRequest;
         this.manager = manager;
 
-        JButton approveButton = new JButton("Approve");
+        RoundedButton approveButton = new RoundedButton("Approve",new Color(230,230,230));
+        approveButton.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.black));
         approveButton.addActionListener(_->onApprove());
 
-        JButton rejectButton = new JButton("Reject");
+        RoundedButton rejectButton = new RoundedButton("Reject",Color.black);
+        rejectButton.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
         rejectButton.addActionListener(_->onReject());
 
         PersonalInfo info = new PersonalInfo();
@@ -35,19 +39,22 @@ public class DepManagerLabel extends JPanel {
         JLabel label = new JLabel();
         label.setPreferredSize(new Dimension(500, 50));
         label.setText(name +"       "+ leaveRequest.getLeaveType()+"        "+leaveRequest.getLeaveStartDate()+"        "+leaveRequest.getLeaveEndDate());
+        label.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
 
         JPanel leftPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
         leftPanel.add(label);
+        leftPanel.setBackground(new Color(47,47,47));
 
         JPanel rightPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+        rightPanel.setBackground(new Color(47,47,47));
         rightPanel.add(approveButton);
         rightPanel.add(rejectButton);
 
         this.setLayout(new BorderLayout());
         this.add(leftPanel, BorderLayout.WEST);
         this.add(rightPanel, BorderLayout.EAST);
-        this.setPreferredSize(new Dimension(700, 50));
-        this.setMaximumSize(new Dimension(700, 50));
+        this.setPreferredSize(new Dimension(830, 50));
+        this.setMaximumSize(new Dimension(830, 50));
         this.setBackground(new Color(47, 47, 47));
 
     }

@@ -1,4 +1,6 @@
-package test;
+package calendar;
+
+import utility.FontUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,6 +10,7 @@ public class Legends extends JPanel {
     public Legends(){
 
         JLabel legendLabel = new JLabel("Legends");
+        legendLabel.setFont(FontUtils.getPoppinsFontWithColor(10f,Color.white));
 
         JLabel holidayLabel = FormatLabel("Holiday", Color.magenta);
         JLabel attendLabel = FormatLabel("Attend", Color.GREEN);
@@ -17,13 +20,13 @@ public class Legends extends JPanel {
 
         JSeparator separator = new JSeparator();
         separator.setForeground(Color.white);
-        separator.setPreferredSize(new Dimension(0,4));
+        separator.setPreferredSize(new Dimension(0,3));
         separator.setOpaque(true);
-        separator.setMaximumSize(new Dimension(Integer.MAX_VALUE, 5));
+        separator.setMaximumSize(new Dimension(Integer.MAX_VALUE, 3));
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setPreferredSize(new Dimension(240,210));
-        setBackground(Color.gray);
+        setBackground(new Color(47,47,47));
         setOpaque(true);
         add(separator);
         add(legendLabel);

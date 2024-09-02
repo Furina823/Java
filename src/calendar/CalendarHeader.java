@@ -1,4 +1,4 @@
-package test;
+package calendar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,14 +19,20 @@ public class CalendarHeader extends JPanel {
         monthYearLabel.setForeground(Color.white);
         monthYearLabel.setFont(new Font("Arial", Font.BOLD, 16));
         monthYearLabel.setPreferredSize(new Dimension(140, 30));
+        monthYearLabel.setBackground(new Color(47,47,47));
 
         leftArrowButton = new JButton("<");
         leftArrowButton.setForeground(Color.white);
-        leftArrowButton.setBackground(Color.gray);
+        leftArrowButton.setBackground(new Color(47,47,47));
         leftArrowButton.setOpaque(true);
+        leftArrowButton.setBorderPainted(false);
+        leftArrowButton.setFocusable(false);
 
         rightArrowButton = new JButton(">");
         rightArrowButton.setForeground(Color.white);
+        rightArrowButton.setBackground(new Color(47,47,47));
+        rightArrowButton.setBorderPainted(false);
+        rightArrowButton.setFocusable(false);
 
         leftArrowButton.addActionListener(new ActionListener() {
             @Override
@@ -47,10 +53,10 @@ public class CalendarHeader extends JPanel {
         });
 
         JPanel navigationPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        navigationPanel.setBackground(new Color(47,47,47));
         navigationPanel.add(leftArrowButton);
         navigationPanel.add(monthYearLabel);
         navigationPanel.add(rightArrowButton);
-        navigationPanel.setBackground(Color.gray);
 
         add(navigationPanel, BorderLayout.CENTER);
     }

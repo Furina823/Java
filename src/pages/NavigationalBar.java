@@ -31,7 +31,9 @@ public class NavigationalBar extends JPanel {
         }));
         this.add(createActionLabel(iconResizeHandlers[2].getImageIcon(),"Profile", 70, () -> MyPanel.replaceRightPanel(new ProfilePanel(bm))));
         this.add(createActionLabel(iconResizeHandlers[3].getImageIcon(),"TimeTable", 70, () -> MyPanel.replaceRightPanel(new TimeTablePanel(bm))));
-        this.add(createActionLabel(iconResizeHandlers[4].getImageIcon(),"Logout", 70, () -> MyPanel.replaceRightPanel(new Logout(bm))));
+        this.add(createActionLabel(iconResizeHandlers[4].getImageIcon(),"Logout", 70, () -> {
+            MyPanel.replaceRightPanel(new Logout(bm, panel));bm.reset();
+        }));
          
         this.add(Box.createVerticalGlue());
 

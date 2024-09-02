@@ -1,11 +1,14 @@
 package pages.profile.info;
 
 import datamodel.EmpNOK;
+import pages.MyPanel;
+import pages.home.HROfficer.ProfileCategories;
 import pages.profile.FirstPage.Header;
 import pages.profile.panelBuilder;
 import rolemodel.BaseModel;
 import utility.DisplayJoption;
 import utility.FontUtils;
+import utility.RoundedButton;
 import utility.TextFileModifier;
 
 import javax.swing.*;
@@ -23,9 +26,11 @@ public class NextOfKin extends JPanel {
 
     public NextOfKin(String empID){
 
+        MyPanel.setButtonAction(MyPanel.createListenerEvent(new ProfileCategories(empID)));
+
         List<EmpNOK> nok = EmpNOK.getRecordByEmpID(empID);
 
-        JLabel titleLabel = new JLabel(" Employee Next of Kin");
+        JLabel titleLabel = new JLabel("    Employee Next of Kin");
         titleLabel.setFont(FontUtils.getPoppinsFontUnderlinedWithColor(16f, Color.white));
         titleLabel.setMaximumSize(new Dimension(700,40));
         titleLabel.setMinimumSize(new Dimension(700,40));
@@ -103,15 +108,18 @@ public class NextOfKin extends JPanel {
         contentPanel.add(gridBagPanel);
         contentPanel.setBackground(new Color(47,47,47));
 
-        JButton saveButton = new JButton("Save");
+        RoundedButton saveButton = new RoundedButton("Save",Color.white);
+        saveButton.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.black));
         saveButton.addActionListener(_ -> onSave(empID));
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(saveButton);
+        buttonPanel.setBackground(new Color(47,47,47));
 
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-        bottomPanel.setPreferredSize(new Dimension(0,120));
+        bottomPanel.setPreferredSize(new Dimension(0,150));
         bottomPanel.add(buttonPanel);
+        bottomPanel.setBackground(new Color(47,47,47));
 
         this.setLayout(new BorderLayout()); // Set layout to BorderLayout
         this.add(header, BorderLayout.NORTH); // Add Header at the top
@@ -284,6 +292,7 @@ public class NextOfKin extends JPanel {
 
         // Update the record with the new content
         tfm.updateRecord(lists.getFirst().getKinID(), newContent);
+        DisplayJoption.showMessage("Employee Next of kin had updated");
     }
 
 

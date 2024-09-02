@@ -2,7 +2,6 @@ package pages.home.HROfficer;
 
 import pages.MyPanel;
 import pages.home.SysAdmin.ACBody_List;
-import pages.profile.info.Personal;
 
 public class HRDepartment_List extends ACBody_List {
 
@@ -18,12 +17,13 @@ public class HRDepartment_List extends ACBody_List {
         getViewButton().removeActionListener(getActionListener());
         getViewButton().addActionListener(e -> onView(id));
 
+        MyPanel.setButtonAction(MyPanel.createListenerEvent(new HROfficerHome()));
+
     }
 
 
     private void onView(String id){
 
-        System.out.println(id);
         MyPanel.replaceRightPanel(new ProfileCategories(id));
 
     }

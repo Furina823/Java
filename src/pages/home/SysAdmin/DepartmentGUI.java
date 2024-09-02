@@ -1,10 +1,12 @@
 package pages.home.SysAdmin;
 
-import rolemodel.SysAdministrator;
+import pages.MyPanel;
 import utility.EmptyPanel;
+import utility.RoundedBorder;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class DepartmentGUI extends JPanel {
@@ -30,7 +32,7 @@ public class DepartmentGUI extends JPanel {
         contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         contentPanel.setPreferredSize(new Dimension(850,600));
-        contentPanel.setBackground(null);
+        contentPanel.setBackground(Color.black);
 
         for(String s : dep.getUniqueDepartments()){
 
@@ -38,6 +40,20 @@ public class DepartmentGUI extends JPanel {
             contentPanel.add(new DepartmentLabel(s));
 
         }
+
+        contentPanel.add(formatlabel(""));
+        contentPanel.add(formatlabel(""));
+
+        JLabel next = formatlabel("Set Standardized Working Hour");
+        contentPanel.add(next);
+        next.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                MyPanel.replaceRightPanel(new SetWorkingHour());
+            }
+        });
+
 
         this.setLayout(new BorderLayout());
         this.add(headerPanel, BorderLayout.NORTH);
@@ -55,5 +71,27 @@ public class DepartmentGUI extends JPanel {
         return contentPanel;
     }
 
+    private JLabel formatlabel(String text){
+
+        JLabel label = new JLabel();
+
+        label.setBorder(new RoundedBorder(Color.black, 2,10));
+        label.setText(text);
+        label.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+            }
+        });
+        label.setBackground(Color.black);
+        label.setOpaque(true);
+        label.setFont(new Font("Poppins", Font.PLAIN,20));
+        label.setForeground(Color.white);
+        label.setMaximumSize(new Dimension(Integer.MAX_VALUE,50));
+
+        return label;
+
+    }
 
 }

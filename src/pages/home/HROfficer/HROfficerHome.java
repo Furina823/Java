@@ -13,7 +13,7 @@ public class HROfficerHome extends DepartmentGUI{
 
     private Departments dep;
 
-    public HROfficerHome(HROfficer hr) {
+    public HROfficerHome() {
 
         dep = new Departments();
         setHeaderLabel("Profile Management:");

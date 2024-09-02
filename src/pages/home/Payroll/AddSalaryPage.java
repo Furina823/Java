@@ -178,9 +178,7 @@ private void Validation(){
         }
 
         if (valid){
-            for(String s : array){
-                System.out.println(s);
-            }
+
             MyPanel.replaceRightPanel(new PaySlipGenerator(emp.getEmpID(),array));
         }
 

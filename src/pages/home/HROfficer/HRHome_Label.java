@@ -19,7 +19,6 @@ public class HRHome_Label extends DepartmentLabel {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println(getText());
         MyPanel.replaceRightPanel(new HRHome_Department(text));
     }
 

@@ -1,4 +1,4 @@
-package test;
+package calendar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,7 +35,7 @@ public class DateButtonsPanel extends JPanel {
                     BorderFactory.createEmptyBorder(3, 3, 3, 3)
             ));
             button.setOpaque(true);
-            button.setBackground(Color.gray);
+            button.setBackground(new Color(47,47,47));
         }
     }
 
@@ -43,7 +43,7 @@ public class DateButtonsPanel extends JPanel {
         JButton button = new JButton();
         button.setFont(new Font("Arial", Font.PLAIN, 16));
         button.setOpaque(true); // Required for background color
-        button.setBackground(Color.gray); // Set the background color
+        button.setBackground(new Color(47,47,47)); // Set the background color
         button.setContentAreaFilled(true); // Required for background color
         return button;
     }

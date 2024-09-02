@@ -22,7 +22,9 @@ public class firstPage_Content extends JPanel {
 
         for(String s : infos){
             contentLabel = new Content_Label(s, empID);
+            contentLabel.setFont(FontUtils.getPoppinsFontWithColor(16f,Color.white));
             this.add(contentLabel);
+            this.add(new EmptyPanel());
         }
 
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));

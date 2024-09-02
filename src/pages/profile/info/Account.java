@@ -2,6 +2,7 @@ package pages.profile.info;
 
 import datamodel.Emp;
 import pages.MyPanel;
+import pages.home.HROfficer.ProfileCategories;
 import pages.home.SysAdmin.Departments;
 import pages.profile.FirstPage.Header;
 import pages.profile.panelBuilder;
@@ -12,7 +13,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -32,6 +32,8 @@ public class Account extends JPanel {
     String[] depart = dep.getUniqueDepartments().toArray(new String[0]);
 
     public Account(String empID){
+
+        MyPanel.setButtonAction(MyPanel.createListenerEvent(new ProfileCategories(empID)));
 
         revalidate();
         repaint();
@@ -95,7 +97,8 @@ public class Account extends JPanel {
         }
 
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        buttonPanel.setPreferredSize(new Dimension(0,100));
+        buttonPanel.setPreferredSize(new Dimension(0,150));
+        buttonPanel.setBackground(new Color(47, 47, 47));
         buttonPanel.add(saveButton());
         buttonPanel.add(cancelButton());
 
@@ -123,15 +126,17 @@ public class Account extends JPanel {
 
     }
 
-    private JButton saveButton(){
+    private RoundedButton saveButton(){
 
-        JButton saveButton = new JButton("Save");
+        RoundedButton saveButton = new RoundedButton("Save",Color.white);
+        saveButton.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.black));
         saveButton.addActionListener(_->{onSave();});
         return saveButton;
     }
 
-    private JButton cancelButton(){
-        JButton cancelButton = new JButton("Cancel");
+    private RoundedButton cancelButton(){
+        RoundedButton cancelButton = new RoundedButton("Cancel",Color.black);
+        cancelButton.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
         cancelButton.addActionListener(_->{
             MyPanel.replaceRightPanel(new Account(emp.getEmpID()));
         });
@@ -155,6 +160,8 @@ public class Account extends JPanel {
 
         if(valid) {
 
+            if(emp.getIsBan().equals("null")){emp.setIsBan("0");}
+
             array = new String[]{emp.getEmpEmail(), emp.getEmpPassword(),
                     emp.getIsBan(), emp.getDateJoin(), emp.getDateLeave(),
                     emp.getSalary(), emp.getPosition(), array[0], array[1]};
@@ -163,6 +170,8 @@ public class Account extends JPanel {
             tfm.updateRecord(emp.getEmpID(), array);
 
             MyPanel.replaceRightPanel(new Account(emp.getEmpID()));
+            DisplayJoption.showMessage("Account Information had updated");
+
         } else {
             DisplayJoption.showMessage("Please select a valid role");
             MyPanel.replaceRightPanel(new Account(emp.getEmpID()));
@@ -248,7 +257,7 @@ public class Account extends JPanel {
 
         bottomPanel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
         bottomPanel.setBackground(new Color(47,47,47));
-        bottomPanel.setPreferredSize(new Dimension(700,100));
+        bottomPanel.setPreferredSize(new Dimension(700,150));
         bottomPanel.add(editButton);
 
         this.setLayout(new BorderLayout()); // Set layout to BorderLayout

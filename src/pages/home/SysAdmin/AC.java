@@ -1,5 +1,6 @@
 package pages.home.SysAdmin;
 
+import pages.MyPanel;
 import rolemodel.SysAdministrator;
 
 import javax.swing.*;

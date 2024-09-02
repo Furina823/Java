@@ -3,6 +3,7 @@ package pages.leave.FirstPage;
 import datamodel.LeaveRequest;
 import rolemodel.BaseModel;
 import utility.EmptyPanel;
+import utility.InvisibleScrollBarUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,9 @@ public class LeaveBody extends JPanel {
             this.add(new LeaveTab(lr, panel,bm));
             this.add(new EmptyPanel());
         }
+
+        this.setBackground(Color.black);
+
 
     }
 

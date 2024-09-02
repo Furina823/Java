@@ -35,8 +35,10 @@ public class Salary_Increment extends JPanel {
         footerPanel.add(footerLabel);
 
         for(SalaryHistory s : model.getSalary()){
-            contentPane.add(new SI_Label(s));
-            contentPane.add(new EmptyPanel());
+            if(!s.getDate().equals("null")) {
+                contentPane.add(new SI_Label(s));
+                contentPane.add(new EmptyPanel());
+            }
         }
 
         this.setLayout(new FlowLayout(FlowLayout.LEFT));

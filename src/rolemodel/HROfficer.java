@@ -15,7 +15,7 @@ public class HROfficer extends BaseModel{
 
     @Override
     JPanel Home() {
-        return new HROfficerHome(this);
+        return new HROfficerHome();
     }
 
     // Constructor for Account created but no information
@@ -54,6 +54,11 @@ public class HROfficer extends BaseModel{
         this.frame = frame;
         frame.replacePanel(new MyPanel(Home(),this));
 
+    }
+
+    @Override
+    public void reset() {
+        frame.replacePanel(new MyPanel(Home(),this));
     }
 
 }

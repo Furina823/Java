@@ -44,23 +44,25 @@ public class MonthPage extends AC {
         );
 
         for(Paid paid : paidList){
-            acb = new ACBody_List("",empID);
-            getBody().getlistView().add(acb);
-            getBody().getlistView().add(new EmptyPanel());
-            acb.getLeftPanel().remove(acb.getIDLabel());
-            acb.getRightPanel().remove(acb.getActionButton());
-            acb.getViewButton().removeActionListener(acb.getActionListener());
-            acb.getViewButton().setFocusPainted(false);
-            acb.getViewButton().setFont(FontUtils.getPoppinsFont(14f));
-            acb.getUsernameLabel().setText(paid.getDate());
-            acb.getViewButton().addActionListener(
-                    new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                            onView(paid.getPaidId());
+            if(!paid.getDate().equals("null")) {
+                acb = new ACBody_List("", empID);
+                getBody().getlistView().add(acb);
+                getBody().getlistView().add(new EmptyPanel());
+                acb.getLeftPanel().remove(acb.getIDLabel());
+                acb.getRightPanel().remove(acb.getActionButton());
+                acb.getViewButton().removeActionListener(acb.getActionListener());
+                acb.getViewButton().setFocusPainted(false);
+                acb.getViewButton().setFont(FontUtils.getPoppinsFont(14f));
+                acb.getUsernameLabel().setText(paid.getDate());
+                acb.getViewButton().addActionListener(
+                        new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                onView(paid.getPaidId());
+                            }
                         }
-                    }
-            );
+                );
+            }
         }
 
 

@@ -1,11 +1,14 @@
 package pages.profile.info;
 
 import datamodel.PersonalInfo;
+import pages.MyPanel;
+import pages.home.HROfficer.ProfileCategories;
 import pages.profile.FirstPage.Header;
 import pages.profile.panelBuilder;
 import rolemodel.BaseModel;
 import utility.DisplayJoption;
 import utility.FontUtils;
+import utility.RoundedButton;
 import utility.TextFileModifier;
 
 import javax.swing.*;
@@ -18,15 +21,17 @@ public class Personal extends JPanel {
 
     private JPanel gridBagPanel;
     private LinkedHashMap<String, String> maps;
-    private JButton button;
-    private JButton saveButton;
-    private JButton cancelButton;
+    private RoundedButton button;
+    private RoundedButton saveButton;
+    private RoundedButton cancelButton;
     private JPanel buttonPanel;
 
     public Personal(String empID){
 
         PersonalInfo personalinfo = new PersonalInfo();
         PersonalInfo info = personalinfo.getPersonalInfo(empID);
+
+        MyPanel.setButtonAction(MyPanel.createListenerEvent(new ProfileCategories(empID)));
 
         JLabel titleLabel = new JLabel("Employee Information");
         titleLabel.setFont(FontUtils.getPoppinsFontUnderlinedWithColor(16f, Color.white));
@@ -122,18 +127,19 @@ public class Personal extends JPanel {
     }
 
     private JPanel getPanel(String empID) {
-        button = new JButton("Edit");
+        button = new RoundedButton("Edit",Color.white);
+        button.setFont(FontUtils.getPoppinsFontWithColor(14f, Color.black));
 
         ActionListener listener = e -> setEdit(empID);
         button.addActionListener(listener);
 
         JPanel bottomPanel = new JPanel(new BorderLayout());
-        bottomPanel.setPreferredSize(new Dimension(770, 150));
-        bottomPanel.setBackground(Color.red);
+        bottomPanel.setPreferredSize(new Dimension(770, 100));
+        bottomPanel.setBackground(new Color(47,47,47));
 
         // Creating a panel to hold the button and align it to the right
         buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        buttonPanel.setBackground(Color.red); // Keep the same background color
+        buttonPanel.setBackground(new Color(47,47,47)); // Keep the same background color
         buttonPanel.add(button);
 
         bottomPanel.add(buttonPanel, BorderLayout.SOUTH);
@@ -142,9 +148,11 @@ public class Personal extends JPanel {
 
     private void setEdit(String empID){
 
-        saveButton = new JButton("Save");
+        saveButton = new RoundedButton("Save",Color.black);
+        saveButton.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
         saveButton.addActionListener(e -> onSave(empID));
-        cancelButton = new JButton("Cancel");
+        cancelButton = new RoundedButton("Cancel",Color.white);
+        cancelButton.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.black));
         cancelButton.addActionListener(e -> onCancel());
 
         for(Component builder : gridBagPanel.getComponents()){
@@ -230,10 +238,25 @@ public class Personal extends JPanel {
             infos.setMarital_status(maps.get("Marital Status:"));
             infos.setMailing_address(maps.get("Mailing Address:"));
             onValidatePass(infos);
+        }{
+            MyPanel.replaceRightPanel(new Personal(empID));
         }
     }
 
     public boolean validateText(String s){
+
+        for(Component builder : gridBagPanel.getComponents()){
+            if(builder instanceof panelBuilder){
+                panelBuilder pb = (panelBuilder) builder;
+                if(pb.getLabelText().equals("Gender:")){
+                    if (!pb.getTextField().getText().equals("Female") && !pb.getTextField().getText().equals("Male")){
+                        DisplayJoption.showMessage("Gender must be 'Male' or 'Female'");
+                        return false;
+                    }
+                }
+            }
+        }
+
 
         if(s.contains(",")){
             DisplayJoption.showMessage("Information cannot include ,");
@@ -254,6 +277,7 @@ public class Personal extends JPanel {
                 info.getMarital_status()
         };
         tfm.updateRecord(info.getEmpid(),content);
+        DisplayJoption.showMessage("Employee Personal Information Updated");
     }
 
 
