@@ -29,6 +29,26 @@ public class Validation {
             if(array[1].trim().equals(username) && array[2].trim().equals(password) && array[3].trim().equals("0")) {
                 userID = array[0];
 
+                LocalDate date = LocalDate.now();
+                LocalTime now = LocalTime.now();
+                DateTimeFormatter hour_min = DateTimeFormatter.ofPattern("HH:mm");
+                String hourTime = hour_min.format(now);
+                boolean isValid = false;
+
+                for(Attendance as : Attendance.getAttendanceInfo(userID)){
+
+                    if (as.getDate().equals(date.toString())) {
+                        isValid = true;
+                        break;
+                    }
+                }
+
+                if(!isValid){
+                    TextFileModifier t = new TextFileModifier("attendance");
+                    String[] content = getStrings(date, userID, hourTime);
+                    t.createRecord(content);
+                }
+
                 fetchAllInformation fai = new fetchAllInformation(userID);
                 successful = true;
                 String role = fai.getEmp().getRole().trim();
@@ -107,26 +127,6 @@ public class Validation {
                     default -> successful = false;
                 }
 
-                LocalDate date = LocalDate.now();
-                LocalTime now = LocalTime.now();
-                DateTimeFormatter hour_min = DateTimeFormatter.ofPattern("HH:mm");
-                String hourTime = hour_min.format(now);
-                boolean isValid = false;
-
-                for(Attendance as : Attendance.getAttendanceInfo(fai.getEmp().getEmpID())){
-
-                    if (as.getDate().equals(date.toString())) {
-                        isValid = true;
-                        break;
-                    }
-                }
-
-                if(!isValid){
-                    TextFileModifier t = new TextFileModifier("attendance");
-                    String[] content = getStrings(date, fai, hourTime);
-                    t.createRecord(content);
-                }
-
                 break; // Exit loop once a valid user is found
             }
             else if(array[1].trim().equals(username) && array[2].trim().equals(password) && array[3].trim().equals("null")) {
@@ -177,7 +177,7 @@ public class Validation {
         }
     }
 
-    private static String[] getStrings(LocalDate date, fetchAllInformation fai, String hourTime) {
+    private static String[] getStrings(LocalDate date, String userID, String hourTime) {
         String a = "";
         String b = "";
 
@@ -189,7 +189,7 @@ public class Validation {
         }
 
         String[] content = {
-                fai.getEmp().getEmpID(), date.toString(),
+                userID, date.toString(),
                 "Present", a,b,hourTime,"00:00"
         };
         return content;
