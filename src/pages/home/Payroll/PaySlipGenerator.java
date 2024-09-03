@@ -239,7 +239,7 @@ public class PaySlipGenerator extends JPanel {
             }
         }
 
-        return salary/previousMonth_WorkDay.size()*i;
+        return (double) Math.round((salary / previousMonth_WorkDay.size() * i) * 100) /100;
 
     }
 

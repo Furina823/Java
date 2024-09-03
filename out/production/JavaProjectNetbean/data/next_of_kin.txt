@@ -29,7 +29,6 @@
 20029,10015,Laura Wilson,Wife,+1-602-555-3456
 20030,10015,Steven Wilson,Father,+1-602-555-4567
 20031,10016,Rebecca Walker,Mother,+1-202-555-5678
-20032,10016,James Walker,Father,+1-202-555-6789
 20033,10017,Emma Hall,Mother,+1-323-555-6789
 20034,10017,William Hall,Father,+1-323-555-7890
 20035,10018,Olivia Young,Spouse,+1-312-555-6789
