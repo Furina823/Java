@@ -3,7 +3,7 @@ package pages;
 import pages.leave.FirstPage.LeavePanel;
 import pages.profile.ProfilePanel;
 import rolemodel.BaseModel;
-import utility.iconResizeHandler;
+import utility.IconResizeHandler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,9 +18,9 @@ public class NavigationalBar extends JPanel {
         this.setBackground(Color.black);
 
         String[] icons = {"home.png", "walking.png", "profile.png", "schedule.png", "logout1.png"};
-        iconResizeHandler[] iconResizeHandlers = new iconResizeHandler[icons.length];
+        IconResizeHandler[] iconResizeHandlers = new IconResizeHandler[icons.length];
         for(int i = 0; i < icons.length; i++){
-            iconResizeHandlers[i] = new iconResizeHandler(50,50,new ImageIcon("src/picture/" + icons[i]));
+            iconResizeHandlers[i] = new IconResizeHandler(50,50,new ImageIcon("src/picture/" + icons[i]));
         }
 
         // Adding action labels to the navigation bar

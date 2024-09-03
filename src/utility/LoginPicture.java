@@ -1,22 +1,24 @@
 package utility;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
 
-public class ImagePanel extends JPanel {
+public class LoginPicture extends JPanel {
     private BufferedImage image;
 
-    public ImagePanel(String imagePath) {
-        try {
-            image = ImageIO.read(new File(imagePath));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+     public LoginPicture(String imagePath) {
+
+         try {
+             image = ImageIO.read(new File(imagePath));
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+
+     }
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -28,7 +30,7 @@ public class ImagePanel extends JPanel {
 
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(850, 560);
+        return new Dimension(550, 600);
     }
 
 }

@@ -15,7 +15,7 @@ public class SI_Label extends JPanel {
         leftPanel.setMaximumSize(new Dimension(830,50));
         leftPanel.setBackground(new Color(47,47,47));
 
-        JLabel amountLabel = new JLabel(salary.getIncrementAmount());
+        JLabel amountLabel = new JLabel("RM "+ salary.getIncrementAmount()+"            ");
         amountLabel.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
         JLabel dateLabel = new JLabel(salary.getDate());
         dateLabel.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));

@@ -27,20 +27,23 @@ public class LeaveTab extends JPanel {
         leftPanel.setBackground(new Color(47,47,47));
 
         JLabel nameLabel = new JLabel(lr.getLeaveId());
-        nameLabel.setFont(FontUtils.getPoppinsFontWithColor(12f,Color.white));
+        nameLabel.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
 
         JLabel leaveTypeLabel = new JLabel(lr.getLeaveType());
-        leaveTypeLabel.setFont(FontUtils.getPoppinsFontWithColor(12f,Color.white));
+        leaveTypeLabel.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
 
         JLabel dayStartLabel = new JLabel(lr.getLeaveStartDate());
-        dayStartLabel.setFont(FontUtils.getPoppinsFontWithColor(12f,Color.white));
+        dayStartLabel.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
 
         JLabel dayEndLabel = new JLabel(lr.getLeaveEndDate());
-        dayEndLabel.setFont(FontUtils.getPoppinsFontWithColor(12f,Color.white));
+        dayEndLabel.setFont(FontUtils.getPoppinsFontWithColor(14f,Color.white));
 
         leftPanel.add(nameLabel);
+        leftPanel.add(new JLabel("      "));
         leftPanel.add(leaveTypeLabel);
+        leftPanel.add(new JLabel("      "));
         leftPanel.add(dayStartLabel);
+        leftPanel.add(new JLabel("      "));
         leftPanel.add(dayEndLabel);
 
         rightPanel = new JPanel();

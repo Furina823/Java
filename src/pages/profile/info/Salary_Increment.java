@@ -16,15 +16,13 @@ public class Salary_Increment extends JPanel {
 
         MyPanel.setButtonAction(MyPanel.createListenerEvent(new Historical(model)));
 
-        this.add(new ACHeader("Historical"));
-
         JPanel contentPane = new JPanel();
         contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
         contentPane.setPreferredSize(new Dimension(830,420));
         contentPane.setBackground(Color.black);
 
-        JLabel titleLabel = new JLabel("Salary");
-        titleLabel.setFont(FontUtils.getPoppinsFontUnderlinedWithColor(12f, Color.white));
+        JLabel titleLabel = new JLabel("Salary Increment Record");
+        titleLabel.setFont(FontUtils.getPoppinsFontUnderlinedWithColor(24f, Color.white));
 
         JLabel footerLabel = new JLabel("Current Salary: RM " + model.getEmpCompany().getSalary());
         footerLabel.setFont(FontUtils.getPoppinsFontWithColor(16f,Color.white));
@@ -43,6 +41,7 @@ public class Salary_Increment extends JPanel {
 
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
         this.setBackground(Color.black);
+        this.add(titleLabel);
         this.add(contentPane);
         this.add(footerPanel);
 

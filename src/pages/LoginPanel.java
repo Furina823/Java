@@ -1,9 +1,6 @@
 package pages;
 
-import utility.DisplayJoption;
-import utility.RoundedBorder;
-import utility.RoundedButton;
-import utility.Validation;
+import utility.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,10 +23,11 @@ public class LoginPanel extends JPanel implements ActionListener {
         // Right panel setup
         RightLoginPanel = new JPanel();
         RightLoginPanel.setLayout(new BorderLayout());
-        JLabel rightLabel = new JLabel("Some Picture Maybe", SwingConstants.CENTER);
         RightLoginPanel.setBackground(Color.white);
         RightLoginPanel.setOpaque(true);
-        RightLoginPanel.add(rightLabel, BorderLayout.CENTER);
+
+        LoginPicture picture = new LoginPicture("src/picture/login.jpg");
+        RightLoginPanel.add(picture);
 
         LeftLoginPanel = new JPanel();
         LeftLoginPanel.setLayout(new GridBagLayout());
@@ -108,6 +106,7 @@ public class LoginPanel extends JPanel implements ActionListener {
 
         LeftLoginPanel.setPreferredSize(new Dimension(550, 600));
         RightLoginPanel.setPreferredSize(new Dimension(550, 600));
+
 
         this.setLayout(new GridBagLayout());
         gbc.gridx = 0;

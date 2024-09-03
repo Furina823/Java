@@ -47,10 +47,8 @@ public class DepartmentGUI extends JPanel {
 
         }
 
-        contentPanel.add(formatlabel(""));
-        contentPanel.add(formatlabel(""));
-
-        next = formatlabel("Set Standardized Working Hour");
+        contentPanel.add(new EmptyPanel());
+        next = formatlabel("Set Standardized Working Hour >");
         contentPanel.add(next);
         next.addMouseListener(new MouseAdapter() {
             @Override
@@ -90,7 +88,7 @@ public class DepartmentGUI extends JPanel {
 
             }
         });
-        label.setBackground(Color.black);
+        label.setBackground(new Color(47,47,47));
         label.setOpaque(true);
         label.setFont(new Font("Poppins", Font.PLAIN,20));
         label.setForeground(Color.white);
