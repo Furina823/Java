@@ -15,6 +15,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.*;
 import java.util.List;
 
@@ -131,6 +132,11 @@ public class NextOfKin extends JPanel {
     }
 
     private void handleAddIcon(panelBuilder builder) {
+
+        for(MouseListener l : builder.getIconLabel().getMouseListeners()) {
+            builder.getIconLabel().removeMouseListener(l);
+        }
+
         builder.setIcontoIconLabel(builder.getAddIcon());
         builder.addIconLabel();
         builder.getIconLabel().addMouseListener(new MouseAdapter() {
@@ -184,7 +190,7 @@ public class NextOfKin extends JPanel {
 
     private void binAction() {
         // Remove components at gridy = 2
-        removeComponentAtGridY(gridBagPanel);
+        removeComponentAtGridY();
 
         // Adjust the line count and remove the last map entry
         line = 1;
@@ -265,7 +271,6 @@ public class NextOfKin extends JPanel {
 
                 if (!ValidateText(text)) {
                     valid = false; // Set valid to false if validation fails
-                    break; // Exit the loop as validation has failed
                 }
             }
         }
@@ -322,13 +327,17 @@ public class NextOfKin extends JPanel {
         return false; // No component with the specified gridy was found
     }
 
-    private void removeComponentAtGridY(Container container) {
-        for (Component component : container.getComponents()) {
-            GridBagConstraints gbc = ((GridBagLayout) container.getLayout()).getConstraints(component);
+    private void removeComponentAtGridY() {
+        for (Component component : gridBagPanel.getComponents()) {
+            if(component instanceof  panelBuilder){
+            GridBagConstraints gbc = ((GridBagLayout) gridBagPanel.getLayout()).getConstraints(component);
             if (gbc.gridy == 2) {
-                container.remove(component);
+                gridBagPanel.remove(component);
+                }
             }
         }
+        gridBagPanel.revalidate();
+        gridBagPanel.repaint();
     }
 
     public NextOfKin(BaseModel baseModel) {

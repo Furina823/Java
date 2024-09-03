@@ -14,7 +14,6 @@ public class CalendarGUI extends JPanel {
     JPanel gridPanel;
     JLabel titleLabel;
     JPanel leftBackgroundPanel;
-    JPanel bottomBackgroundPanel;
     JPanel rightBackgroundPanel;
     RightCalendarGUI rightCalendarGUI;
 

@@ -18,7 +18,6 @@ public class Validation {
     private String userID;
     private boolean successful;
 
-    // Static variable to store failed usernames
     private static ArrayList<String> errorUsername = new ArrayList<>();
 
     public Validation(MyFrame frame, String username, String password) {
@@ -27,10 +26,10 @@ public class Validation {
         for (String s : tfm.list) {
             String[] array = s.trim().split(",");
             // Login Success
-//            if(array[1].trim().equals(username) && array[2].trim().equals(password) && array[3].trim().equals("0")) {
+            if(array[1].trim().equals(username) && array[2].trim().equals(password) && array[3].trim().equals("0")) {
                 userID = array[0];
 
-                fetchAllInformation fai = new fetchAllInformation("10001");
+                fetchAllInformation fai = new fetchAllInformation(userID);
                 successful = true;
                 String role = fai.getEmp().getRole().trim();
 
@@ -116,8 +115,9 @@ public class Validation {
 
                 for(Attendance as : Attendance.getAttendanceInfo(fai.getEmp().getEmpID())){
 
-                    if (as.getDate().equals(date.toString())){
+                    if (as.getDate().equals(date.toString())) {
                         isValid = true;
+                        break;
                     }
                 }
 
@@ -128,19 +128,30 @@ public class Validation {
                 }
 
                 break; // Exit loop once a valid user is found
-//            }
-//            else if(array[1].trim().equals(username) && array[2].trim().equals(password) && array[3].trim().equals("null")) {
-//                DisplayJoption.showMessage("This account hasn't been modified by the Human Resource Officer. Please seek help from the Human Resource Officer.");
-//            }
-//            else if(array[1].trim().equals(username) && !array[2].trim().equals(password) && array[3].trim().equals("0")) {
-//                errorUsername.add(username);
-//                DisplayJoption.showMessage("Invalid credentials");
-//
-//            } else if (array[1].trim().equals(username) && array[2].trim().equals(password) && array[3].trim().equals("1")){
-//                DisplayJoption.showMessage("This account has been locked. Please seek assistance from the System Administrator.");
-//            }else {
-//                successful = false;
-//            }
+            }
+            else if(array[1].trim().equals(username) && array[2].trim().equals(password) && array[3].trim().equals("null")) {
+                DisplayJoption.showMessage("This account hasn't been modified by the Human Resource Officer. Please seek help from the Human Resource Officer.");
+                successful = true;
+                break;
+            }else if(array[1].trim().equals(username) && !array[2].trim().equals(password) && array[3].trim().equals("1") ||
+                    array[1].trim().equals(username) && !array[2].trim().equals(password) && array[3].trim().equals("null")){
+                DisplayJoption.showMessage("Invalid credentials");
+                successful = true;
+                break;
+            }
+            else if(array[1].trim().equals(username) && !array[2].trim().equals(password) && array[3].trim().equals("0")
+            ) {
+                errorUsername.add(username);
+                DisplayJoption.showMessage("Invalid credentials");
+                successful = true;
+                break;
+            } else if (array[1].trim().equals(username) && array[2].trim().equals(password) && array[3].trim().equals("1")){
+                DisplayJoption.showMessage("This account has been locked. Please seek assistance from the System Administrator.");
+                successful = true;
+                break;
+            }else {
+                successful = false;
+            }
 
         }
 
@@ -162,6 +173,7 @@ public class Validation {
 
             tfm.updateRecord(emp.getEmpID(), updatedRecord);
             DisplayJoption.showMessage("This account has been locked due to 3 wrong attempts.");
+            successful = true;
         }
     }
 
@@ -199,4 +211,5 @@ public class Validation {
         }
         return false;
     }
+
 }

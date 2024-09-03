@@ -6,7 +6,6 @@ import utility.RoundedButton;
 import utility.Validation;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,7 +31,6 @@ public class LoginPanel extends JPanel implements ActionListener {
         RightLoginPanel.setOpaque(true);
         RightLoginPanel.add(rightLabel, BorderLayout.CENTER);
 
-        // Left panel setup
         LeftLoginPanel = new JPanel();
         LeftLoginPanel.setLayout(new GridBagLayout());
 
@@ -62,6 +60,7 @@ public class LoginPanel extends JPanel implements ActionListener {
         usernameTextField.setFont(new Font("TimesRoman", Font.PLAIN, 15));
         usernameTextField.setPreferredSize(new Dimension(100,40));
         usernameTextField.setColumns(20);
+        usernameTextField.setCaretColor(Color.white);
 
         passwordTextField = new JPasswordField();
         passwordTextField.setColumns(20);
@@ -90,13 +89,13 @@ public class LoginPanel extends JPanel implements ActionListener {
 
         gbc.gridy++;
         gbc.gridwidth = 1; // Reset to default
-        gbc.anchor = GridBagConstraints.WEST;
+        gbc.anchor = GridBagConstraints.CENTER;
         gbc.insets = new Insets(0,0,0,0);
         LeftLoginPanel.add(usernameTextField, gbc);
 
         gbc.gridy++;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(10,0,10,0);
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.insets = new Insets(10,5,10,5);
         LeftLoginPanel.add(passwordTextField, gbc);
 
         gbc.gridy++;
@@ -132,10 +131,9 @@ public class LoginPanel extends JPanel implements ActionListener {
         Validation validation = new Validation(parentFrame, username, password);
         if (validation.isSuccessful()) {
 
-        } else {
+        }else {
             DisplayJoption.showMessage("Invalid username and password");
         }
-
     }
 
     @Override
