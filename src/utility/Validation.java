@@ -171,6 +171,8 @@ public class Validation {
                     emp.getRole()
             };
 
+            errorUsername.clear();
+
             tfm.updateRecord(emp.getEmpID(), updatedRecord);
             DisplayJoption.showMessage("This account has been locked due to 3 wrong attempts.");
             successful = true;
